@@ -1,0 +1,18 @@
+.modalButtonDelete {
+  padding: 19px 50px; 
+  height: 55px;
+  margin-bottom: 10px;
+  color: var(--white);
+  font-weight: 500;
+  font-size: 16px;
+  background-color: var(--light-titian);
+  transition: background-color .3s ease-in-out;
+}
+
+.modalButtonDelete:hover {
+  background-color: var(--fiery-sienna-craiola);
+}
+
+.modalButtonDelete:focus {
+  background-color: var(--dark-salmon);
+}

@@ -1,0 +1,44 @@
+.statisticDay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.statistickDayInfo {
+  width: 100%;
+  max-width: 405px;
+  padding: 25px;
+  background-repeat: no-repeat;
+  background-position: right 25px center;
+}
+
+.statistickDayFocus {
+  background-color: var(--yellow-peach);
+  background-image: url(../../../../assets/StatisticFocus.svg);
+  margin-right: 32px;
+}
+
+.statisticDayPause {
+  background-color: var(--light-mallow);
+  background-image: url(../../../../assets/StatisticPause.svg);
+  margin-right: 32px;
+}
+
+.statisticDayStops {
+  background-color: var(--light-cyanide);  
+  background-image: url(../../../../assets/StatisticBreak.svg);
+}
+
+.statisticInfoTitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px;
+  color: var(--signal-black);
+  margin-bottom: 20px;
+}
+
+.statisticInfoDescr {
+  font-size: 64px;
+  font-weight: 400;
+  color: var(--signal-black);
+}

@@ -1,0 +1,22 @@
+.headerEqualizer {
+  max-width: 114px;
+  width: 100%;
+  height: 24px;
+}
+
+.headerEqualizerLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--light-titian);
+  transition: color .1s ease-in-out;
+}
+
+.headerEqualizerLink:hover {
+  color: var(--deep-red-orange);
+}
+
+.headerEqualizerText {
+  font-weight: 400;
+  font-size: 16px;
+}

@@ -1,0 +1,60 @@
+.statisticBlockContent {
+  display: flex;
+  margin-bottom: 32px;
+}
+
+.statisticLeftBlock {
+  width: 100%;
+  max-width: 296px;
+  margin-right: 32px;
+}
+
+.statisticDayBlock {
+  width: 100%;
+  max-width: 296px;
+  min-height: 260px;
+  padding: 25px;
+  margin-bottom: 32px;
+}
+
+.statisticDayTitle {
+  margin-bottom: 14px;
+  font-size: 24px;
+  line-height: 33px;
+}
+
+.statisticDayDescr {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+.statisticDaySpan {
+  font-weight: 700;
+  color: var(--light-titian);
+}
+
+.statisticPomidoroDayDescr {    
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  color: var(--pearl-light-grey);
+}
+
+.statisticPomidoroDayDescr span {
+  margin-right: 15px;
+}
+
+.statisticPomidoroDayButton {
+  width: 100%;
+  background-color: var(--light-titian);
+  padding: 9px 10px;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+}

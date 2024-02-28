@@ -1,0 +1,135 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-weight: 200;
+  font-style: normal;
+
+  src: local("SFUI-Ultralight"),
+  url(./fonts/SFUIDisplay-Ultralight.woff2) format(woff2),
+  url(./fonts/SFUIDisplay-Ultralight.woff) format(woff);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-weight: 300;
+  font-style: normal;
+
+  src: local("SFUI-Light"),
+  url(./fonts/SFUIDisplay-Light.woff2) format(woff2),
+  url(./fonts/SFUIDisplay-Light.woff) format(woff);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-weight: 400;
+  font-style: normal;
+
+  src: local("SFUI-Regular"),
+  url(./fonts/SFUIDisplay-Regular.woff2) format(woff2),
+  url(./fonts/SFUIDisplay-Regular.woff) format(woff);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-weight: 500;
+  font-style: normal;
+
+  src: local("SFUI-Medium"),
+  url(./fonts/SFUIDisplay-Medium.woff2) format(woff2),
+  url(./fonts/SFUIDisplay-Medium.woff) format(woff);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-weight: 700;
+  font-style: normal;
+
+  src: local("SFUI-Bold"),
+  url(./fonts/SFUIDisplay-Bold.woff2) format(woff2),
+  url(./fonts/SFUIDisplay-Bold.woff) format(woff);
+  font-display: swap;
+}
+
+:root {
+  --white: #ffffff;
+  --deep-red-orange: #B7280F;
+  --light-titian: #DC3E22;
+  --fiery-sienna-craiola: #EE735D;
+  --dark-salmon: #EA8979;
+  --ocean-blue: #213547;
+  --mderate-slate-blue: #747BFF;
+  --smoky-white: #F9F9F9;
+  --smoky-white2: #F4F4F4;
+  --gainsborough: #E4E4E4;
+  --signal-black: #333333;
+  --pearl-light-grey: #999999;
+  --yellow-ochre: #A8B64F;
+  --moderate-yellow-green: #899441;
+  --yellow-peach: #FFDDA9;
+  --light-mallow: #DFDCFE;
+  --light-cyanide: #C5F1FF;
+  --silver: #C4C4C4;
+}
+
+body {
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+  color: var(--light-titian);
+  color: var(--ocean-blue)
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body {
+  margin: 0;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: SF UI Display;
+}
+
+h1, h2, h3 {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: inherit;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: var(--white);
+  }
+  a:hover {
+    color: var(--mderate-slate-blue);
+  }
+  button {
+    background-color: var(--smoky-white);
+  }
+}

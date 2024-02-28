@@ -1,0 +1,32 @@
+.taskList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 17px;
+  color: var(--signal-black);
+  border-bottom: 1px solid var(--gainsborough);
+  transition: background-color .3s ease-in-out;
+}
+
+.taskList:hover {
+  background-color: var(--smoky-white2);
+}
+
+.taskListText {
+  width: 100%;
+  text-align: left;
+  padding: 19px 0;
+}
+
+.taskListNumber {
+  display: inline-block;
+  text-align: center;
+  margin-right: 10px;    
+  width: 25px;
+  height: 25px;
+  padding: 4px 7px;
+  border: 1px solid var(--silver);
+  border-radius: 100%;
+}
