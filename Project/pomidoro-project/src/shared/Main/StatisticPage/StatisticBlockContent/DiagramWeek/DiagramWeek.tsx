@@ -21,6 +21,20 @@ export function DiagramWeek() {
               display: false,
             },
           },
+          scales: {
+            y: {
+              position: 'right',
+              border: {
+                color: '#333333',
+              },
+            },
+            x: {
+              backgroundColor: '#ECECEC',
+              grid: {
+                display: false,
+              }
+            }
+          }
         }}
       />
     </div>
