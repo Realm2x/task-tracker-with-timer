@@ -1,5 +1,5 @@
 import './settingsbuttonincrease.css';
-import { RightArrow } from '../../../../../../assets';
+import { Arrow } from '../../../../../../assets';
 
 interface IPomidoroDurationIncrease {
   onClick: () => void;
@@ -7,8 +7,8 @@ interface IPomidoroDurationIncrease {
 
 export function PomidoroDurationIncrease({onClick}: IPomidoroDurationIncrease) {
   return (
-    <button onClick={onClick}>
-      <RightArrow />
+    <button className='buttonSettingsIncrease' onClick={onClick}>
+      <Arrow />
     </button>
   );
 }

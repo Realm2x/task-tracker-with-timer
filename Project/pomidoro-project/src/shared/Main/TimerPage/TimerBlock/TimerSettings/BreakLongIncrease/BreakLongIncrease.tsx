@@ -1,4 +1,4 @@
-import { RightArrow } from '../../../../../../assets';
+import { Arrow } from '../../../../../../assets';
 import './breaklongincrease.css';
 
 interface IBreakLongIncrease {
@@ -7,8 +7,8 @@ interface IBreakLongIncrease {
 
 export function BreakLongIncrease({onClick}: IBreakLongIncrease) {
   return (
-    <button onClick={onClick}>
-      <RightArrow />
+    <button className='buttonSettingsIncrease' onClick={onClick}>
+      <Arrow />
     </button>
   );
 }

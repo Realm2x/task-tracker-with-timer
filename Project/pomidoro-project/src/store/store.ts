@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import taskReducer, { REC_FAV_KEY } from './task/taskSlice'
 import modalDeleteReducer from './modalDelete/modalSlice'
+import modalEditReducer from './modalEdit/modalEditSlice'
 import modalSettingsReducer, { REC_SET_KEY, initialState } from './modalSettings/modalSettings'
 
 const taskState = JSON.parse(localStorage.getItem(REC_FAV_KEY) || '[]');
@@ -13,7 +14,8 @@ export const store = configureStore({
   },
   reducer: {
     task: taskReducer,
-    modal: modalDeleteReducer,
+    modalDelete: modalDeleteReducer,
+    modalEdit: modalEditReducer,
     modalSettings: modalSettingsReducer,
   }
 })

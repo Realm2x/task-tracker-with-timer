@@ -6,13 +6,16 @@ import { TaskList } from './TaskList';
 import { TimerBlock } from './TimerBlock/TimerBlock';
 import { DeleteModal } from '../../DeleteModal';
 import { useEffect, useState } from 'react';
+import { ChangeModal } from './TaskList/ChangeModal';
 
 export function TimerPage() {
   const taskList = useSelector((state: RootState) => state.task);
-  const modalState = useSelector((state: RootState) => state.modal);
+  const modalStateDelete = useSelector((state: RootState) => state.modalDelete);
+  const modalStateEdit = useSelector((state: RootState) => state.modalEdit);
   const modalSettings = useSelector((state: RootState) => state.modalSettings);
   const taskListDone = taskList.filter((task) => task.taskDone !== true ? task : null);
-  const [isModal, setIsModal] = useState(modalState.modal);
+  const [isModal, setIsModal] = useState(modalStateDelete.modal);
+  const [isEditModal, setIsEditModal] = useState(modalStateEdit.modal);
   const quantityPomidoro = taskListDone.map((task) => task.pomidoro);
   let sum = quantityPomidoro.reduce(function (x, y) {
     return x + y;
@@ -22,8 +25,9 @@ export function TimerPage() {
 
 
   useEffect(() =>{
-    setIsModal(modalState.modal)
-  }, [modalState, isModal])
+    setIsModal(modalStateDelete.modal)
+    setIsEditModal(modalStateEdit.modal)
+  }, [modalStateDelete, isModal, isEditModal, modalStateEdit])
   
   return (
     <>
@@ -52,7 +56,10 @@ export function TimerPage() {
         }
       </div>
       {isModal ? 
-        <DeleteModal id={modalState.id} /> : null
+        <DeleteModal id={modalStateDelete.id} /> : null
+      }
+      {isEditModal ? 
+        <ChangeModal /> : null
       }
     </>
   );

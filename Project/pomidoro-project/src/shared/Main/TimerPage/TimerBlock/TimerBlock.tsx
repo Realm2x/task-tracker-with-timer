@@ -49,6 +49,7 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id}: ITimerBlock) {
       }, 1000)
       if (timer < 0) {
         setIsSound(false);
+        setIsWork(false);
         setIsBreak(true);
         if (isCurrentPomidoro % longBreakFrequency === 0) {
           setTimeBreak(60 * longBreakDuration);

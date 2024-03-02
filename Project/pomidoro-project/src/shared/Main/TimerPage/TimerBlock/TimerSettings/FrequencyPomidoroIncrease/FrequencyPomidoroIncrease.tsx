@@ -1,4 +1,4 @@
-import { RightArrow } from '../../../../../../assets';
+import { Arrow } from '../../../../../../assets';
 import './frequencypomidoroincrease.css';
 
 interface IFrequencyPomidoroIncrease {
@@ -7,8 +7,8 @@ interface IFrequencyPomidoroIncrease {
 
 export function FrequencyPomidoroIncrease({onClick}: IFrequencyPomidoroIncrease) {
   return (
-    <button onClick={onClick}>
-      <RightArrow />
+    <button className='buttonSettingsIncrease' onClick={onClick}>
+      <Arrow />
     </button>
   );
 }

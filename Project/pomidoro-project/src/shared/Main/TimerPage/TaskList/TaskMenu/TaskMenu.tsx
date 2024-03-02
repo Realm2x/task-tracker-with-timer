@@ -7,15 +7,16 @@ import './taskmenu.css';
 interface ITaskMenu {
   id: string
   pomidoro: number;
+  text: string;
 }
 
-export function TaskMenu({id, pomidoro}: ITaskMenu) {
+export function TaskMenu({id, pomidoro, text}: ITaskMenu) {
 
   return (
     <div className='taskMenu'>
       <MenuIncreaseButton id={id} pomidoro={pomidoro} />
       <MenuReduceButton id={id} pomidoro={pomidoro} />
-      <MenuEditButton />
+      <MenuEditButton id={id} text={text} />
       <MenuDeleteButton id={id} />
     </div>
   );

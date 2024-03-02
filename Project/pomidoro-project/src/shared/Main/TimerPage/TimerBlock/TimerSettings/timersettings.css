@@ -27,7 +27,7 @@
   padding: 25px 50px;
   box-shadow: 0px 0px 20px 0px #00000026;
   background-color: var(--white);
-  border-radius: 3px;
+  border-radius: 5px;
   z-index: 20;
 }
 
@@ -51,4 +51,25 @@
 
 .buttonSettingsText {
   font-size: 30px;
+}
+
+.buttonSettingsIncrease {
+  width: 40px;
+  height: 40px;
+  transform: rotate(180deg);
+  transition: fill .3s ease-in-out;
+}
+
+.buttonSettingsIncrease:hover {
+  fill: var(--ocean-blue);
+}
+
+.buttonSettingsReduce {
+  width: 40px;
+  height: 40px;
+  transition: fill .3s ease-in-out;
+}
+
+.buttonSettingsReduce:hover {
+  fill: var(--ocean-blue);
 }

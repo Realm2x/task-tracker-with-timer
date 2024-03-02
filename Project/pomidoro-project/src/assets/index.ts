@@ -8,6 +8,7 @@ export * from './MenuIncrease';
 export * from './MenuReduce';
 export * from './timerSound.mp3';
 export * from './timerBell.mp3';
-export * from './LeftArrow'
-export * from './RghtArrow';
+export * from './Arrow'
 export * from './TomatoStat';
+export * from './Сheckmark';
+export * from './Settings';

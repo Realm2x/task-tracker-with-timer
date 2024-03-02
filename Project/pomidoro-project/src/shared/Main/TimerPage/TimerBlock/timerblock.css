@@ -70,12 +70,6 @@
   color: var(--pearl-light-grey);
 }
 
-.timerButtonSettings {
-  position: absolute;
-  height: max-content;
-  right: 110px;
-}
-
 .timerButtonSettings svg {
   fill: var(--silver);
   transition: fill .3s ease-in-out;

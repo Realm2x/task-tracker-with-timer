@@ -1,5 +1,5 @@
 import './settingsbuttonreduce.css';
-import { LeftArrow } from '../../../../../../assets';
+import { Arrow } from '../../../../../../assets';
 
 interface IPomidoroDurationReduce {
   onClick: () => void;
@@ -8,8 +8,8 @@ interface IPomidoroDurationReduce {
 export function PomidoroDurationReduce({onClick}: IPomidoroDurationReduce) {
 
   return (
-    <button onClick={onClick}>
-      <LeftArrow />
+    <button className='buttonSettingsReduce' onClick={onClick}>
+      <Arrow />
     </button>
   );
 }

@@ -34,6 +34,18 @@ export function Dropdown({button, children, isOpen, onOpen = NOOP, onClose = NOO
     }
   }
 
+  useEffect(() =>{
+    function handleClick(event: MouseEvent) {
+      if (event.target instanceof Node && !ref.current?.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    }
+    document.addEventListener('click', handleClick)
+    return () => {
+      document.removeEventListener('click', handleClick)
+    }
+  }, [])
+
   const node = document.querySelector('#modal_root');
   if (!node) return null;
 

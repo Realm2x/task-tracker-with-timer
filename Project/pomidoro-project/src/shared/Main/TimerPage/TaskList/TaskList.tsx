@@ -22,7 +22,7 @@ export function TaskList({list}: IListProps) {
           <li className='taskList' key={id}>
             <p className='taskListText'><span className='taskListNumber'>{pomidoro}</span>{text}</p>
             <Dropdown button={<TaskMenuButton />} >
-              <TaskMenu id={id} pomidoro={pomidoro} />
+              <TaskMenu id={id} pomidoro={pomidoro} text={text} />
             </Dropdown>
           </li>
         ))}

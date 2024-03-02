@@ -1,4 +1,4 @@
-import { RightArrow } from '../../../../../../assets';
+import { Arrow } from '../../../../../../assets';
 import './breakshortincrease.css';
 
 interface IBreakShortIncrease {
@@ -7,8 +7,8 @@ interface IBreakShortIncrease {
 
 export function BreakShortIncrease({onClick}: IBreakShortIncrease) {
   return (
-    <button onClick={onClick}>
-      <RightArrow />
+    <button className='buttonSettingsIncrease' onClick={onClick}>
+      <Arrow />
     </button>
   );
 }

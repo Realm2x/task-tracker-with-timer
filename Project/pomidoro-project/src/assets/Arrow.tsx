@@ -1,4 +1,4 @@
-export function LeftArrow() {
+export function Arrow() {
   return (
 		<svg height="40px" width="40px" version="1.1" id="Layer_1" viewBox="0 0 512 512">
 		<path d="M256,0C114.608,0,0,114.608,0,256c0,141.376,114.608,256,256,256s256-114.624,256-256

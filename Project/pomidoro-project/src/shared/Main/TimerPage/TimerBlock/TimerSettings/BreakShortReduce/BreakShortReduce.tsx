@@ -1,4 +1,4 @@
-import { LeftArrow } from '../../../../../../assets';
+import { Arrow } from '../../../../../../assets';
 import './breakshortreduce.css';
 
 interface IBreakShortReduce {
@@ -7,8 +7,8 @@ interface IBreakShortReduce {
 
 export function BreakShortReduce({onClick}: IBreakShortReduce) {
   return (
-    <button onClick={onClick}>
-      <LeftArrow />
+    <button className='buttonSettingsReduce' onClick={onClick}>
+      <Arrow />
     </button>
   );
 }
