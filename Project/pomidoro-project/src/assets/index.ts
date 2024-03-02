@@ -1,6 +1,6 @@
 export * from './TomatoLogo';
 export * from './Equalizer';
-export * from './TimerSettingsSvg';
+export * from './TimerSvg';
 export * from './MenuTask';
 export * from './MenuDelete';
 export * from './MenuEdit';
@@ -11,4 +11,4 @@ export * from './timerBell.mp3';
 export * from './Arrow'
 export * from './TomatoStat';
 export * from './Сheckmark';
-export * from './Settings';
+export * from './SettingsSvg';

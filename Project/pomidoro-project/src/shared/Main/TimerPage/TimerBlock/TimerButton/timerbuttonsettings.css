@@ -1,0 +1,14 @@
+.timerButtonPomidor {
+  position: absolute;
+  height: max-content;
+  right: 110px;
+}
+
+.timerButtonPomidor svg {
+  fill: var(--silver);
+  transition: fill .3s ease-in-out;
+}
+
+.timerButtonPomidor:hover svg {
+  fill: var(--moderate-yellow-green);
+}

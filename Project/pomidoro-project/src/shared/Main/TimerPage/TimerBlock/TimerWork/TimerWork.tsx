@@ -5,7 +5,7 @@ import { ButtonTimerStart } from '../ButtonTimerStart';
 import { ButtonTimerStop } from '../ButtonTimerStop';
 import timerBell from '../../../../../assets/timerBell.mp3';
 import './timerwork.css';
-import { TimerButtonSettings } from '../TimerButtonSettings';
+import { TimerButton } from '../TimerButton';
 
 interface ITimerWork {
   work: boolean;
@@ -20,9 +20,10 @@ interface ITimerWork {
   isCurrentPomidoro: number;
   id: string;
   isSound: boolean;
+  pomidoro: number;
 }
 
-export function TimerWork({work, pause, text, minutes, seconds, taskNumber, setIsWork, setIsPause, setTimer, id, isCurrentPomidoro, isSound}: ITimerWork) {
+export function TimerWork({work, pause, text, minutes, seconds, taskNumber, setIsWork, setIsPause, setTimer, id, isCurrentPomidoro, isSound, pomidoro}: ITimerWork) {
   const soundTimer = <audio autoPlay src={timerBell} ></audio>
 
   return (
@@ -45,7 +46,7 @@ export function TimerWork({work, pause, text, minutes, seconds, taskNumber, setI
           :
           <p className="timerNumber">{minutes}:{seconds} </p>
           }
-          <TimerButtonSettings />
+          <TimerButton id={id} pomidoro={pomidoro} />
         </div>
         <p className='timerTaskText'><span className='timerTaskNumber'>Задача {taskNumber} - </span>{text} </p>
         <div className="timerButtonGroup">

@@ -4,9 +4,10 @@ import { ButtonTimerSkip } from '../ButtonTimerSkip';
 import { ButtonTimerStart } from '../ButtonTimerStart';
 import timerBell from '../../../../../assets/timerBell.mp3';
 import './timerbreak.css';
-import { TimerButtonSettings } from '../TimerButtonSettings';
+import { TimerButton } from '../TimerButton';
 
 interface ITimerBreak {
+  id: string;
   work: boolean;
   pause: boolean;
   text: string;
@@ -24,7 +25,7 @@ interface ITimerBreak {
   setIsSound: (value: boolean) => void;
 }
 
-export function TimerBreak({work, pause, text, minutes, seconds, taskNumber, setIsWork, setIsPause, setTimer, setIsBreak, setIsCurrentPomidoro, isCurrentPomidoro, isSound, setIsSound}: ITimerBreak) {
+export function TimerBreak({id, work, pause, text, minutes, seconds, taskNumber, setIsWork, setIsPause, setTimer, setIsBreak, setIsCurrentPomidoro, isCurrentPomidoro, isSound, setIsSound, pomidoro}: ITimerBreak) {
   const soundTimer = <audio autoPlay src={timerBell}></audio>
   
   return (
@@ -44,7 +45,7 @@ export function TimerBreak({work, pause, text, minutes, seconds, taskNumber, set
           :
           <p className="timerNumber">{minutes}:{seconds} </p>
           }
-          <TimerButtonSettings />
+          <TimerButton id={id} pomidoro={pomidoro} />
         </div>
         <p className='timerTaskText'><span className='timerTaskNumber'>Задача {taskNumber} - </span>{text} </p>
         <div className="timerButtonGroup">

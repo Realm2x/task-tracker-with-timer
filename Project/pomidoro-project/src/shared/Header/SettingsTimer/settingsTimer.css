@@ -1,0 +1,22 @@
+.timerButtonSettings {
+  width: 20px;
+  height: 20px;
+  transition: transform .5s ease-in-out;
+}
+
+.timerButtonSettings svg {
+  width: 20px;
+  height: 20px;
+}
+
+.timerButtonSettings svg g {
+  fill: var(--light-titian);
+}
+
+.timerButtonSettings:hover  {
+  transform: rotate(90deg);
+}
+
+.timerButtonSettings:hover svg g {
+  fill: var(--deep-red-orange);
+}

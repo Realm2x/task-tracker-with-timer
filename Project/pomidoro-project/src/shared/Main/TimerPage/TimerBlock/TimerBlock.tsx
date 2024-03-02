@@ -103,9 +103,11 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id}: ITimerBlock) {
           setTimer={setTimer}
           id={id}
           isSound={isSound}
+          pomidoro={pomidoro}
         />
         :
         <TimerBreak
+          id={id}
           work={isWork}
           pause={isPause}
           text={taskText}
