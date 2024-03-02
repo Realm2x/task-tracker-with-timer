@@ -50,10 +50,11 @@ export function TimerBreak({id, work, pause, text, minutes, seconds, taskNumber,
         <p className='timerTaskText'><span className='timerTaskNumber'>Задача {taskNumber} - </span>{text} </p>
         <div className="timerButtonGroup">
           {work ? <ButtonTimerPause setIsWork={setIsWork} setIsPause={setIsPause}/> : null}
-          {work ? <ButtonTimerSkip setIsBreak={setIsBreak} setIsWork={setIsWork} setTimer={setTimer} setIsPomidoro={setIsCurrentPomidoro} isPomidoro={isCurrentPomidoro} setIsSound={setIsSound} />  : null}
+          {work ? <ButtonTimerSkip id={id} pomidoro={pomidoro} setIsBreak={setIsBreak} setIsWork={setIsWork} setTimer={setTimer} setIsCurrentPomidoro={setIsCurrentPomidoro} isCurrentPomidoro={isCurrentPomidoro} setIsSound={setIsSound} />  : null}
           {!work && !pause ? <ButtonTimerStart setIsWork={setIsWork}/> : null}
+          {!work && !pause ? <ButtonTimerSkip id={id} pomidoro={pomidoro} setIsBreak={setIsBreak} setIsWork={setIsWork} setTimer={setTimer} setIsCurrentPomidoro={setIsCurrentPomidoro} isCurrentPomidoro={isCurrentPomidoro} setIsSound={setIsSound} /> : null}
           {!work && pause ? <ButtonTimerContinue setIsWork={setIsWork} /> : null}
-          {!work && pause ? <ButtonTimerSkip setIsBreak={setIsBreak} setIsWork={setIsWork} setTimer={setTimer} setIsPomidoro={setIsCurrentPomidoro} isPomidoro={isCurrentPomidoro} setIsSound={setIsSound} /> : null}
+          {!work && pause ? <ButtonTimerSkip id={id} pomidoro={pomidoro} setIsBreak={setIsBreak} setIsWork={setIsWork} setTimer={setTimer} setIsCurrentPomidoro={setIsCurrentPomidoro} isCurrentPomidoro={isCurrentPomidoro} setIsSound={setIsSound} /> : null}
           {isSound ? soundTimer : null}
         </div>
       </div>

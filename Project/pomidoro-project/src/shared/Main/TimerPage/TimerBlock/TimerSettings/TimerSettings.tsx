@@ -34,7 +34,7 @@ export function TimerSettings() {
   }, [])
 
   const pomidoroDurationReduce = () => {
-    if (pomidoroDuration > 20) {
+    if (pomidoroDuration > 1) {
       dispatch(changesPomidoroDuration(pomidoroDuration - 1))
     }
   }
@@ -46,7 +46,7 @@ export function TimerSettings() {
   }
 
   const breakShortReduce = () => {
-    if (shortBreakDuration > 3) {
+    if (shortBreakDuration > 1) {
       dispatch(changesShortBreakDuration(shortBreakDuration - 1))
     }
   }
@@ -58,7 +58,7 @@ export function TimerSettings() {
   }
 
   const breakLongReduce = () => {
-    if (longBreakDuration > 15) {
+    if (longBreakDuration > 1) {
       dispatch(changesLongBreakDuration(longBreakDuration - 1))
     }
   }
@@ -70,7 +70,7 @@ export function TimerSettings() {
   }
 
   const frequencyTomatoReduce = () => {
-    if (longBreakFrequency > 3) {
+    if (longBreakFrequency > 1) {
       dispatch(changesLongBreakFrequency(longBreakFrequency - 1))
     }
   }
