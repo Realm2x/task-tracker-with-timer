@@ -6,7 +6,7 @@
   width: 100%;
   padding: 15px;
   border: 1px solid #C4C4C4;
-  background-color: var(--white);
+  background-color: var(--background-task);
 }
 
 .taskMenu::after {
@@ -16,7 +16,7 @@
   right: 77px;
   width: 11px;
   height: 11px;
-  background: var(--white);
+  background: var(--background-task-arrow);
   border-right:1px solid var(--silver);
   border-bottom:1px solid var(--silver);
   transform: rotate(-135deg);

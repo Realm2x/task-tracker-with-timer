@@ -1,3 +1,4 @@
+import { ChangeTheme } from './ChangeTheme';
 import './header.css';
 import { Logo } from './Logo'
 import { SettingsTimer } from './SettingsTimer';
@@ -9,6 +10,7 @@ export function Header() {
       <Logo />
       <div className='headerContent'>
         <Statistic />
+        <ChangeTheme />
         <SettingsTimer />
       </div>
     </header>

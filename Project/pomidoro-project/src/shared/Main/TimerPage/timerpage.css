@@ -9,6 +9,9 @@
   max-width: 531px;
   width: 100%;
   margin-right: 16px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: var(--background-left-content);
 }
 
 .manual {
@@ -20,7 +23,7 @@
   font-weight: 700;
   font-size: 24px;
   line-height: 33px;
-  color: var(--signal-black);
+  color: var(--color-text);
 }
 
 .manual__checklist {
@@ -36,7 +39,7 @@
 }
 
 .manual__checklist span {
-  color: var(--signal-black);
+  color: var(--color-text);
 }
 
 .tasks__list {
@@ -48,10 +51,12 @@
 .tasks__time {
   font-weight: 300;
   font-size: 16px;
-  color: var(--pearl-light-grey);
+  color: var(--color-text);
 }
 
 .right-content {
   max-width: 733px;
   width: 100%;
+  border-radius: 5px;
+  background-color: var(--background-rigth-content);
 }

@@ -7,7 +7,8 @@ export function DiagramWeek() {
     labels: ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'],
     datasets: [{
         label: 'Work',
-        data: [25, 50, 75, 100, 200, 0, 0],
+        data: [25, 50, 35, 70, 40, 0, 0],
+        backgroundColor: '#EA8979',
     }],
   }
 
@@ -23,9 +24,24 @@ export function DiagramWeek() {
           },
           scales: {
             y: {
+              min: 0,
+              max: 100,
               position: 'right',
               border: {
-                color: '#333333',
+                display: false,
+              },
+              ticks: {
+                stepSize: 25,
+                callback: function(value) {
+                  if (value === 0) { return null }
+                  let hours;
+                  if (+value < 60) { return value + ' мин' }
+                  if (+value >= 60) {
+                    hours = Math.floor(+value / 60);
+                    value = +value - hours * 60;
+                    return hours + ' час ' + value + ' мин';
+                  }
+                }
               },
             },
             x: {

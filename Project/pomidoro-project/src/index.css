@@ -66,7 +66,7 @@
   --fiery-sienna-craiola: #EE735D;
   --dark-salmon: #EA8979;
   --ocean-blue: #213547;
-  --mderate-slate-blue: #747BFF;
+  --moderate-slate-blue: #747BFF;
   --smoky-white: #F9F9F9;
   --smoky-white2: #F4F4F4;
   --gainsborough: #E4E4E4;
@@ -78,16 +78,77 @@
   --light-mallow: #DFDCFE;
   --light-cyanide: #C5F1FF;
   --silver: #C4C4C4;
+  --dark-blue: #00132e;
+  --moderate-blue: #0e3e7d;
+}
+
+
+html[data-theme="light"] {
+  --background-header: var(--white);
+  --background-main: var(--white);
+  --background-left-content: var(--white);
+  --background-rigth-content: var(--white);
+  --color-text: var(--signal-black);
+  --color-text-2: var(--white);
+  --color-text-3: var(--pearl-light-grey);
+  --background-input: var(--white);
+  --color-input: var(--pearl-light-grey);
+  --border-list: var(--gainsborough);
+  --border-number-list: var(--silver);
+  --background-hover-list: var(--smoky-white2);
+  --fill-task-menu: var(--silver);
+  --background-task-menu: var(--white);
+  --background-task: var(--white);
+  --background-task-arrow: var(--white);
+  --background-timer-title: var(--silver);
+  --color-timer: var(--signal-black);
+  --color-timer-active: var(--light-titian);
+  --fill-timer-button: var(--silver);
+  --color-button-timer-stop: var(--silver);
+  --background-button-timer-stop: var(--white);
+  /* MODULE SETTING */
+  --background-color-modal: var(--white);
+  --color-settings-text: var(--signal-black);
+  --color-settings-title: var(--signal-black);
+}
+
+html[data-theme="dark"] {
+  --background-header: var(--ocean-blue);
+  --background-main: var(--dark-blue);
+  --background-left-content: var(--ocean-blue);
+  --background-rigth-content: var(--ocean-blue);
+  --color-text: var(--light-titian);
+  --color-text-2: var(--white);
+  --color-text-3: var(--pearl-light-grey);
+  --background-input: var(--dark-blue);
+  --color-input: var(--white);
+  --border-list: var(--dark-blue);
+  --border-number-list: var(--dark-blue);
+  --background-hover-list: var(--moderate-blue);
+  --fill-task-menu: var(--dark-blue);
+  --background-task-menu: var(--ocean-blue);
+  --background-task: var(--ocean-blue);
+  --background-task-arrow: var(--ocean-blue);
+  --background-timer-title: var(--moderate-blue);
+  --color-timer: var(--white);
+  --color-timer-active: var(--light-titian);
+  --fill-timer-button: var(--dark-blue);
+  --color-button-timer-stop: var(--white);
+  --background-button-timer-stop: var(--silver);
+  /* MODULE SETTING */
+  --background-color-modal: var(--ocean-blue);
+  --color-settings-text: var(--white);
+  --color-settings-title: var(--silver);
 }
 
 body {
   position: relative;
+  background-color: var(--background-main);
 }
 
 a {
   text-decoration: none;
   color: var(--light-titian);
-  color: var(--ocean-blue)
 }
 
 p {
@@ -119,17 +180,4 @@ button {
   padding: 0;
   cursor: pointer;
   background-color: inherit;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: var(--white);
-  }
-  a:hover {
-    color: var(--mderate-slate-blue);
-  }
-  button {
-    background-color: var(--smoky-white);
-  }
 }

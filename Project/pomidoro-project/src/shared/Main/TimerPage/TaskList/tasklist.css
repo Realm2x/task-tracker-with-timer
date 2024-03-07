@@ -1,3 +1,7 @@
+.tasksList {
+  margin-bottom: 19px;
+}
+
 .taskList {
   display: flex;
   justify-content: space-between;
@@ -5,19 +9,19 @@
   font-weight: 300;
   font-size: 16px;
   line-height: 17px;
-  color: var(--signal-black);
-  border-bottom: 1px solid var(--gainsborough);
+  color: var(--color-text);
+  border-bottom: 1px solid var(--border-list);
   transition: background-color .3s ease-in-out;
 }
 
 .taskList:hover {
-  background-color: var(--smoky-white2);
+  background-color: var(--background-hover-list);
 }
 
 .taskListText {
   width: 100%;
   text-align: left;
-  padding: 19px 0;
+  padding: 19px 5px;
 }
 
 .taskListNumber {
@@ -27,6 +31,6 @@
   width: 25px;
   height: 25px;
   padding: 4px 7px;
-  border: 1px solid var(--silver);
+  border: 1px solid var(--border-number-list);
   border-radius: 100%;
 }

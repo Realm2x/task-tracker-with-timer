@@ -11,13 +11,13 @@
 }
 
 .task__menu-button svg circle {
-  fill: var(--silver);
+  fill: var(--fill-task-menu);
 }
 
 .task__menu-button:hover {
-  background-color: var(--silver);
+  background-color: var(--fill-task-menu);
 }
 
 .task__menu-button:hover svg circle {
-  fill: var(--white);
+  fill: var(--background-task-menu);
 }
