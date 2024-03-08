@@ -10,6 +10,8 @@
   margin-bottom: 15px;
   padding: 10px;
   font-size: 16px;
+  color: var(--color-text);
+  background-color: var(--background-input);
 }
 
 .changeFormButton {

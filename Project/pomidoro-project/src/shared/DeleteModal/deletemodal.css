@@ -21,7 +21,7 @@
   max-width: 350px;
   padding: 25px 83px;
   box-shadow: 0px 0px 20px 0px #00000026;
-  background-color: var(--white);
+  background-color: var(--background-modal);
   border-radius: 3px;
   z-index: 20;
 }
@@ -30,5 +30,5 @@
   margin-bottom: 25px;
   font-weight: 400;
   font-size: 24px;
-  color: var(--signal-black);
+  color: var(--color-text);
 }

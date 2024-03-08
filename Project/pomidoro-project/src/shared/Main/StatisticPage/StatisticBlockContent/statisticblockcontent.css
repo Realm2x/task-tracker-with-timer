@@ -21,12 +21,14 @@
   margin-bottom: 14px;
   font-size: 24px;
   line-height: 33px;
+  color: var(--color-statistic-text);
 }
 
 .statisticDayDescr {
   font-weight: 400;
   font-size: 16px;
   line-height: 28px;
+  color: var(--color-statistic-text);
 }
 
 .statisticDaySpan {

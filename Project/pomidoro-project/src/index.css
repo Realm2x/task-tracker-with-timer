@@ -110,6 +110,11 @@ html[data-theme="light"] {
   --background-color-modal: var(--white);
   --color-settings-text: var(--signal-black);
   --color-settings-title: var(--signal-black);
+  /* STATISTIC PAGE */
+  --background-statistick-block: var(--white);
+  --color-statistic-text: var(--signal-black);
+  /* MODAL */
+  --background-modal: var(--white);
 }
 
 html[data-theme="dark"] {
@@ -117,7 +122,7 @@ html[data-theme="dark"] {
   --background-main: var(--dark-blue);
   --background-left-content: var(--ocean-blue);
   --background-rigth-content: var(--ocean-blue);
-  --color-text: var(--light-titian);
+  --color-text: var(--white);
   --color-text-2: var(--white);
   --color-text-3: var(--pearl-light-grey);
   --background-input: var(--dark-blue);
@@ -139,6 +144,11 @@ html[data-theme="dark"] {
   --background-color-modal: var(--ocean-blue);
   --color-settings-text: var(--white);
   --color-settings-title: var(--silver);
+  /* STATISTIC PAGE */
+  --background-statistick-block: var(--ocean-blue);
+  --color-statistic-text: var(--white);
+  /* MODAL */
+  --background-modal: var(--ocean-blue);
 }
 
 body {
