@@ -14,6 +14,7 @@
   line-height: 17px;
   color: var(--color-input);
   background-color: var(--background-input);
+  transition: background-color .3s linear;
 }
 
 .task-form__button {

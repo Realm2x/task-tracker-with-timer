@@ -3,10 +3,11 @@ import 'chart.js/auto';
 import { Bar } from 'react-chartjs-2';
 
 export function DiagramWeek() {
+
+
   const data = {
     labels: ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'],
     datasets: [{
-        label: 'Work',
         data: [25, 50, 35, 70, 40, 0, 0],
         backgroundColor: '#EA8979',
     }],

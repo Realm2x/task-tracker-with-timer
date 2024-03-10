@@ -10,6 +10,7 @@
   border-top-right-radius: 5px;
   color: var(--color-text-2);
   background-color: var(--background-timer-title);
+  transition: background-color .3s linear;
 }
 
 .timerTitleBreak {
@@ -115,6 +116,7 @@
   border: 2px solid var(--silver);
   cursor: default;
   background-color: var(--background-button-timer-stop);
+  transition: background-color .3s linear;
 }
 
 .timerButtonDone,

@@ -22,6 +22,7 @@
   font-size: 24px;
   line-height: 33px;
   color: var(--color-statistic-text);
+  transition: color .5s linear;
 }
 
 .statisticDayDescr {
@@ -29,11 +30,13 @@
   font-size: 16px;
   line-height: 28px;
   color: var(--color-statistic-text);
+  transition: color .5s linear;
 }
 
 .statisticDaySpan {
   font-weight: 700;
   color: var(--light-titian);
+  transition: color .5s linear;
 }
 
 .statisticPomidoroDayDescr {    

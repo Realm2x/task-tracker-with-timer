@@ -1,4 +1,7 @@
+import { useDispatch } from 'react-redux';
 import './buttontimerpause.css';
+import { AppDispatch } from '../../../../../store/store';
+import { timeOnPause } from '../../../../../store/statistickData/statistickData';
 
 interface IButtonTimerPause {
   setIsWork: (value: boolean) => void;
@@ -6,9 +9,15 @@ interface IButtonTimerPause {
 }
 
 export function ButtonTimerPause({setIsWork, setIsPause}: IButtonTimerPause) {
+  const dispatch = useDispatch<AppDispatch>();
+  const date = new Date;
+  const formattedDate = date.toLocaleDateString("ru-RU");
+  const miliseconds = date.getTime();
+  
   const handlePause = () => {
     setIsWork(false);
     setIsPause(true);
+    dispatch(timeOnPause({formattedDate, miliseconds}));
   };
 
   return (

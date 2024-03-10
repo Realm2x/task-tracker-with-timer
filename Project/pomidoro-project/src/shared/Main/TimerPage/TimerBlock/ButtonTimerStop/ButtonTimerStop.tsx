@@ -1,6 +1,7 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../../../../../store/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../../../../store/store';
 import './buttontimerstop.css';
+import { stopsQuantity } from '../../../../../store/statistickData/statistickData';
 
 interface IButtonTimerStop {
   switches: boolean;
@@ -11,10 +12,16 @@ interface IButtonTimerStop {
 
 export function ButtonTimerStop({switches, setIsWork, setIsPause, setTimer}: IButtonTimerStop) {
   const {pomidoroDuration} = useSelector((state: RootState) => state.modalSettings);
+  const dispatch = useDispatch<AppDispatch>();
+
+  const date = new Date();
+  const formattedDate = date.toLocaleDateString("ru-RU");
+
   const handleStop = () => {
     setIsWork(false);
     setIsPause(false);
     setTimer(60 * pomidoroDuration);
+    dispatch(stopsQuantity(formattedDate));
   };
 
   return (

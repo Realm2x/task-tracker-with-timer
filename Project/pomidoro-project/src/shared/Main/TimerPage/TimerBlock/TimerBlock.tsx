@@ -6,6 +6,7 @@ import { TimerWork } from './TimerWork';
 import { AppDispatch, RootState } from '../../../../store/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { taskDone } from '../../../../store/task/taskSlice';
+import { timeQuantityPomidoro, timeWorking } from '../../../../store/statistickData/statistickData';
 
 interface ITimerBlock {
   pomidoro: number;
@@ -27,6 +28,10 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id}: ITimerBlock) {
   const seconds = getPadTime(timer - parseInt(minutes) * 60);
   const minutesBreak = getPadTime(Math.floor(timeBreak / 60));
   const secondsBreak = getPadTime(timeBreak - parseInt(minutesBreak) * 60);
+  
+  const date = new Date();
+  const formattedDate = date.toLocaleDateString("ru-RU");
+  
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -48,6 +53,8 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id}: ITimerBlock) {
         setTimer((timer) => timer >= 0 ? --timer : 0);
       }, 1000)
       if (timer < 0) {
+        dispatch(timeWorking({formattedDate, pomidoroDuration}));
+        dispatch(timeQuantityPomidoro(formattedDate));
         setIsSound(false);
         setIsWork(false);
         setIsBreak(true);

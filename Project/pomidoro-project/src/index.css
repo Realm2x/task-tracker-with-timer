@@ -153,7 +153,13 @@ html[data-theme="dark"] {
 
 body {
   position: relative;
+  margin: 0;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: SF UI Display;
   background-color: var(--background-main);
+  transition: background-color .3s linear;
 }
 
 a {
@@ -170,14 +176,6 @@ ul {
   padding: 0;
   margin: 0;
   list-style: none;
-}
-
-body {
-  margin: 0;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  font-family: SF UI Display;
 }
 
 h1, h2, h3 {
