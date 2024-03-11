@@ -6,7 +6,7 @@ import { TimerWork } from './TimerWork';
 import { AppDispatch, RootState } from '../../../../store/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { taskDone } from '../../../../store/task/taskSlice';
-import { timeQuantityPomidoro, timeWorking } from '../../../../store/statistickData/statistickData';
+import { timeQuantityPomidoro, timeWorking } from '../../../../store/statisticData/statisticData';
 
 interface ITimerBlock {
   pomidoro: number;

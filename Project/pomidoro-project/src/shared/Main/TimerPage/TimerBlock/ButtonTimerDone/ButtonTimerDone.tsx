@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './buttontimerdone.css';
 import { AppDispatch, RootState } from '../../../../../store/store';
 import { taskDone } from '../../../../../store/task/taskSlice';
-import { quantityTimeOnPause } from '../../../../../store/statistickData/statistickData';
+import { quantityTimeOnPause } from '../../../../../store/statisticData/statisticData';
 
 interface IButtonTimerDone {
   setIsWork: (value: boolean) => void;

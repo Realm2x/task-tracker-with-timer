@@ -2,23 +2,23 @@ import { configureStore } from '@reduxjs/toolkit'
 import taskReducer, { REC_FAV_KEY } from './task/taskSlice'
 import modalDeleteReducer from './modalDelete/modalSlice'
 import modalEditReducer from './modalEdit/modalEditSlice'
-import statistickDataReducer from './statistickData/statistickData' 
+import statisticDataReducer from './statisticData/statisticData' 
 import modalSettingsReducer, { REC_SET_KEY, initialState } from './modalSettings/modalSettings'
-import { STA_DAT_KEY } from './statistickData/statistickData'
+import { STA_DAT_KEY } from './statisticData/statisticData'
 
 const taskState = JSON.parse(localStorage.getItem(REC_FAV_KEY) || '[]');
 const settingsState = JSON.parse(localStorage.getItem(REC_SET_KEY) || '{}');
-const statistickState = JSON.parse(localStorage.getItem(STA_DAT_KEY) || '[]');
+const statisticState = JSON.parse(localStorage.getItem(STA_DAT_KEY) || '[]');
 
 export const store = configureStore({
   preloadedState: {
     task: taskState === '[]' ? {task: []} : taskState,
-    statistick: statistickState === '[]' ? {statistic: []} : statistickState,
+    statistic: statisticState === '[]' ? {statistic: []} : statisticState,
     modalSettings: settingsState.pomidoroDuration ? settingsState : initialState,
   },
   reducer: {
     task: taskReducer,
-    statistick: statistickDataReducer,
+    statistic: statisticDataReducer,
     modalDelete: modalDeleteReducer,
     modalEdit: modalEditReducer,
     modalSettings: modalSettingsReducer,

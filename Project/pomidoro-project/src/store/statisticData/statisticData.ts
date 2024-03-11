@@ -14,8 +14,8 @@ export interface IStatisticData {
 
 export const initialState = [] as IStatisticData[];
 
-export const statistickDataSlice = createSlice({
-  name: 'statistickData',
+export const statisticDataSlice = createSlice({
+  name: 'statisticData',
   initialState,
   reducers: {
     dataAdd: {
@@ -55,11 +55,18 @@ export const statistickDataSlice = createSlice({
       localStorage.setItem(STA_DAT_KEY, JSON.stringify(state));
     },
     quantityTimeOnPause: (state, action) => {
-      state.map((e) => e.currentDate === action.payload.formattedDate ? e.quantityTimeOnPause = Math.floor(Math.abs(action.payload.miliseconds - e.timeOnPause) / (1000 * 60)) : e);
+      state.map((e) => {
+        if (e.currentDate === action.payload.formattedDate) {
+          const pauseTime = e.timeOnPause;
+          const currentTime = action.payload.currentTime;
+          e.quantityTimeOnPause += Math.floor((currentTime - pauseTime) / (1000 * 60));
+        }
+        return e;
+      });
       localStorage.setItem(STA_DAT_KEY, JSON.stringify(state));
     },
   }
 })
 
-export const { dataAdd, timeWorking, timeQuantityPomidoro, stopsQuantity, timeOnPause, quantityTimeOnPause } = statistickDataSlice.actions
-export default statistickDataSlice.reducer
+export const { dataAdd, timeWorking, timeQuantityPomidoro, stopsQuantity, timeOnPause, quantityTimeOnPause } = statisticDataSlice.actions
+export default statisticDataSlice.reducer

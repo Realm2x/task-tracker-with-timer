@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import './buttontimercontinue.css';
 import { AppDispatch } from '../../../../../store/store';
-import { quantityTimeOnPause } from '../../../../../store/statistickData/statistickData';
+import { quantityTimeOnPause } from '../../../../../store/statisticData/statisticData';
 
 interface IButtonTimerContinue {
   setIsWork: (value: boolean) => void;
@@ -9,14 +9,14 @@ interface IButtonTimerContinue {
 
 export function ButtonTimerContinue({setIsWork}: IButtonTimerContinue) {
   const dispatch = useDispatch<AppDispatch>();
-
+  
   const date = new Date();
   const formattedDate = date.toLocaleDateString("ru-RU");
-  const miliseconds = date.getTime();
+  const currentTime = date.getTime();
   
   const handleContinue = () => {
     setIsWork(true);
-    dispatch(quantityTimeOnPause({formattedDate, miliseconds}));
+    dispatch(quantityTimeOnPause({formattedDate, currentTime}));
   };
 
   return (

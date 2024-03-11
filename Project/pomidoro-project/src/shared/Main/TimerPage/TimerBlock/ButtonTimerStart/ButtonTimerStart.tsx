@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../../../../store/store';
 import './buttontimerstart.css';
-import { dataAdd } from '../../../../../store/statistickData/statistickData';
+import { dataAdd } from '../../../../../store/statisticData/statisticData';
 
 interface IButtonTimerStart {
   setIsWork: (value: boolean) => void;

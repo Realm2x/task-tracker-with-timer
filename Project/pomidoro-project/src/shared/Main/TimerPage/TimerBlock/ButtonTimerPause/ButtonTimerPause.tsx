@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import './buttontimerpause.css';
 import { AppDispatch } from '../../../../../store/store';
-import { timeOnPause } from '../../../../../store/statistickData/statistickData';
+import { timeOnPause } from '../../../../../store/statisticData/statisticData';
 
 interface IButtonTimerPause {
   setIsWork: (value: boolean) => void;

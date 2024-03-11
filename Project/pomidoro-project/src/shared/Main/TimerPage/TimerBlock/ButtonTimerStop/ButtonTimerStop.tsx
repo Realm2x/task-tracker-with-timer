@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../../../store/store';
 import './buttontimerstop.css';
-import { stopsQuantity } from '../../../../../store/statistickData/statistickData';
+import { stopsQuantity } from '../../../../../store/statisticData/statisticData';
 
 interface IButtonTimerStop {
   switches: boolean;
