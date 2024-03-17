@@ -10,6 +10,7 @@ export interface IStatisticData {
   stops: number;
   timeOnPause: number;
   quantityTimeOnPause: number;
+  activeDay: boolean;
 }
 
 export const initialState = [] as IStatisticData[];
@@ -35,11 +36,12 @@ export const statisticDataSlice = createSlice({
           stops: 0,
           timeOnPause: 0,
           quantityTimeOnPause: 0,
+          activeDay: false,
         } as IStatisticData
       }),
     },
     timeWorking: (state, action) => {
-      state.map((e) => e.currentDate === action.payload.formattedDate ? e.timeWorking = e.timeWorking + action.payload.pomidoroDuration : e);
+      state.map((e) => e.currentDate === action.payload.formattedDate ? e.timeWorking += action.payload.pomidoroDuration : e);
       localStorage.setItem(STA_DAT_KEY, JSON.stringify(state));
     },
     timeQuantityPomidoro: (state, action: PayloadAction<string>) => {
@@ -50,23 +52,30 @@ export const statisticDataSlice = createSlice({
       state.map((e) => e.currentDate === action.payload ? e.stops += 1 : e);
       localStorage.setItem(STA_DAT_KEY, JSON.stringify(state));
     },
+    timeFocus: (state, action) => {
+      state.map((e) => e.currentDate === action.payload ? e.focus = Math.floor(e.timeWorking / (e.quantityTimeOnPause + e.timeWorking) * 100) : e);
+      localStorage.setItem(STA_DAT_KEY, JSON.stringify(state));
+    },
     timeOnPause: (state, action) => {
       state.map((e) => e.currentDate === action.payload.formattedDate ? e.timeOnPause = action.payload.miliseconds : e);
       localStorage.setItem(STA_DAT_KEY, JSON.stringify(state));
     },
     quantityTimeOnPause: (state, action) => {
       state.map((e) => {
-        if (e.currentDate === action.payload.formattedDate) {
+        if (e.currentDate === action.payload) {
           const pauseTime = e.timeOnPause;
-          const currentTime = action.payload.currentTime;
+          const currentTime = Date.now();
           e.quantityTimeOnPause += Math.floor((currentTime - pauseTime) / (1000 * 60));
         }
         return e;
       });
       localStorage.setItem(STA_DAT_KEY, JSON.stringify(state));
     },
+    activeDay: (state, action) => {
+      state.map((e) => e.currentDate === action.payload ? e.activeDay = true : e.activeDay = false);
+    },
   }
 })
 
-export const { dataAdd, timeWorking, timeQuantityPomidoro, stopsQuantity, timeOnPause, quantityTimeOnPause } = statisticDataSlice.actions
+export const { dataAdd, timeWorking, timeQuantityPomidoro, stopsQuantity, timeFocus, timeOnPause, quantityTimeOnPause, activeDay } = statisticDataSlice.actions
 export default statisticDataSlice.reducer

@@ -6,16 +6,17 @@ import { TimerWork } from './TimerWork';
 import { AppDispatch, RootState } from '../../../../store/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { taskDone } from '../../../../store/task/taskSlice';
-import { timeQuantityPomidoro, timeWorking } from '../../../../store/statisticData/statisticData';
+import { timeFocus, timeQuantityPomidoro, timeWorking } from '../../../../store/statisticData/statisticData';
 
 interface ITimerBlock {
   pomidoro: number;
   taskText: string;
   taskNumber: number;
   id: string;
+  currentPomidoro: number;
 }
 
-export function TimerBlock({pomidoro, taskText, taskNumber, id}: ITimerBlock) {
+export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}: ITimerBlock) {
   const {pomidoroDuration, shortBreakDuration, longBreakDuration, longBreakFrequency} = useSelector((state: RootState) => state.modalSettings);
   const [timer, setTimer] = useState(60 * pomidoroDuration);
   const [timeBreak, setTimeBreak] = useState(60 * shortBreakDuration);
@@ -23,14 +24,14 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id}: ITimerBlock) {
   const [isPause, setIsPause] = useState(false);
   const [isBreak, setIsBreak] = useState(false);
   const [isSound, setIsSound] = useState(false);
-  const [isCurrentPomidoro, setIsCurrentPomidoro] = useState(1);
+  const [isCurrentPomidoro, setIsCurrentPomidoro] = useState(currentPomidoro);
   const minutes = getPadTime(Math.floor(timer / 60));
   const seconds = getPadTime(timer - parseInt(minutes) * 60);
   const minutesBreak = getPadTime(Math.floor(timeBreak / 60));
   const secondsBreak = getPadTime(timeBreak - parseInt(minutesBreak) * 60);
   
   const date = new Date();
-  const formattedDate = date.toLocaleDateString("ru-RU");
+  const formattedDate = date.toISOString().split('T')[0];
   
   const dispatch = useDispatch<AppDispatch>();
 
@@ -55,6 +56,7 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id}: ITimerBlock) {
       if (timer < 0) {
         dispatch(timeWorking({formattedDate, pomidoroDuration}));
         dispatch(timeQuantityPomidoro(formattedDate));
+        dispatch(timeFocus(formattedDate));
         setIsSound(false);
         setIsWork(false);
         setIsBreak(true);
@@ -81,6 +83,7 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id}: ITimerBlock) {
         setIsBreak(false);
         setIsWork(false);
         setTimer(60 * pomidoroDuration);
+        dispatch(timeFocus(formattedDate));
         if (isCurrentPomidoro < pomidoro) {
           setIsCurrentPomidoro(isCurrentPomidoro + 1)
         } else {
@@ -135,3 +138,4 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id}: ITimerBlock) {
     </div>
   );
 }
+

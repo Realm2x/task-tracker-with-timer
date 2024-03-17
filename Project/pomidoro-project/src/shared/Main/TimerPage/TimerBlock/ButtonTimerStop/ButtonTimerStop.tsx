@@ -15,7 +15,7 @@ export function ButtonTimerStop({switches, setIsWork, setIsPause, setTimer}: IBu
   const dispatch = useDispatch<AppDispatch>();
 
   const date = new Date();
-  const formattedDate = date.toLocaleDateString("ru-RU");
+  const formattedDate = date.toISOString().split('T')[0];
 
   const handleStop = () => {
     setIsWork(false);

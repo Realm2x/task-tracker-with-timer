@@ -11,7 +11,7 @@ interface IButtonTimerPause {
 export function ButtonTimerPause({setIsWork, setIsPause}: IButtonTimerPause) {
   const dispatch = useDispatch<AppDispatch>();
   const date = new Date;
-  const formattedDate = date.toLocaleDateString("ru-RU");
+  const formattedDate = date.toISOString().split('T')[0];
   const miliseconds = date.getTime();
   
   const handlePause = () => {

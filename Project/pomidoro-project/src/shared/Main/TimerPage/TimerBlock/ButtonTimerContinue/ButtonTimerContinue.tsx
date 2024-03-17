@@ -11,12 +11,11 @@ export function ButtonTimerContinue({setIsWork}: IButtonTimerContinue) {
   const dispatch = useDispatch<AppDispatch>();
   
   const date = new Date();
-  const formattedDate = date.toLocaleDateString("ru-RU");
-  const currentTime = date.getTime();
+  const formattedDate = date.toISOString().split('T')[0];
   
   const handleContinue = () => {
     setIsWork(true);
-    dispatch(quantityTimeOnPause({formattedDate, currentTime}));
+    dispatch(quantityTimeOnPause(formattedDate));
   };
 
   return (

@@ -16,15 +16,14 @@ export function ButtonTimerDone({setIsWork, setIsPause, setTimer, id}: IButtonTi
   const dispatch = useDispatch<AppDispatch>();
 
   const date = new Date();
-  const formattedDate = date.toLocaleDateString("ru-RU");
-  const miliseconds = date.getTime();
+  const formattedDate = date.toISOString().split('T')[0];
 
   const handleDone = () => {
     setIsWork(false);
     setIsPause(false);
     setTimer(60 * pomidoroDuration);
     dispatch(taskDone(id));
-    dispatch(quantityTimeOnPause({formattedDate, miliseconds}));
+    dispatch(quantityTimeOnPause(formattedDate));
   };
     
   return (

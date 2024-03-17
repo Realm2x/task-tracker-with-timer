@@ -9,7 +9,7 @@ interface IButtonTimerStart {
 
 export function ButtonTimerStart({setIsWork}: IButtonTimerStart) {
   const date = new Date();
-  const formattedDate = date.toLocaleDateString("ru-Ru");
+  const formattedDate = date.toISOString().split('T')[0];
   const dispatch = useDispatch<AppDispatch>();
   const handleStart = () => {
     setIsWork(true);

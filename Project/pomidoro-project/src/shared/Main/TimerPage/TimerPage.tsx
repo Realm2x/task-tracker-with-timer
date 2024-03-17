@@ -50,7 +50,13 @@ export function TimerPage() {
       </div>
       <div className='right-content'>
         {taskListDone.length > 0 ? 
-          <TimerBlock pomidoro={taskListDone[0].pomidoro} taskText={taskListDone[0].text} taskNumber={taskListDone[0].taskNumber} id={taskListDone[0].id} />
+          <TimerBlock
+            pomidoro={taskListDone[0].pomidoro}
+            taskText={taskListDone[0].text}
+            taskNumber={taskListDone[0].taskNumber}
+            id={taskListDone[0].id} 
+            currentPomidoro={taskListDone[0].currentPomidoro}
+          />
           :
           null
         }
