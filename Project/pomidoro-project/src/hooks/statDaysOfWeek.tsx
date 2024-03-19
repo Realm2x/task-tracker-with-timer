@@ -1,20 +1,26 @@
 import { IStatisticData } from "../store/statisticData/statisticData";
 
-export const dateConversion = (data: IStatisticData[]) => {
+interface dateConversionInterface {
+  statistic: IStatisticData[],
+  currentWeekDay: number,
+}
+
+export const dateConversion = ({statistic, currentWeekDay}: dateConversionInterface) => {
   const orderedObjects: IStatisticData[] = [];
   
   for (let i = 1; i <= 7; i++) {
     const currentDate = new Date();
-    currentDate.setDate(currentDate.getDate() - (7 - i));
-    
-    const foundObject = data.find(obj => obj.currentDate === currentDate.toISOString().split('T')[0]);
+    const index = currentDate.getDay() + currentWeekDay;
+    currentDate.setDate(currentDate.getDate() - (index - i));
+    const foundObject = statistic.find(obj => obj.currentDate === currentDate.toISOString().split('T')[0]);
     
     if (foundObject) {
       orderedObjects.push(foundObject);
     } else {
       orderedObjects.push({currentDate: currentDate.toISOString().split('T')[0], timeWorking: 0} as IStatisticData);
     }
+    
   }
-
+  
   return orderedObjects;
 }

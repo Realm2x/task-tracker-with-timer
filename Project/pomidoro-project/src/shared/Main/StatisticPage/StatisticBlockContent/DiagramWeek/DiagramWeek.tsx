@@ -9,13 +9,16 @@ import { activeDay } from '../../../../../store/statisticData/statisticData';
 
 export function DiagramWeek() {
   const statistic = useSelector((state: RootState) => state.statistic);
+  const choseWeek = useSelector((state: RootState) => state.choiceWeek);
   const [statisticData, setStatisticData] = useState(new Array());
   const dispatch = useDispatch<AppDispatch>();
-
+  
+  const currentWeekDay = choseWeek.find(e => e.active === true)?.weekDay || 0;
+  
   useEffect(() => {
-    const dataStat = dateConversion(statistic);
+    const dataStat = dateConversion({statistic, currentWeekDay});
     setStatisticData(dataStat);
-  }, [statistic]);
+  }, [statistic, choseWeek]);
   
   const chartRef = useRef<any>();
   

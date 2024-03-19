@@ -5,6 +5,7 @@ import modalEditReducer from './modalEdit/modalEditSlice'
 import statisticDataReducer from './statisticData/statisticData' 
 import modalSettingsReducer, { REC_SET_KEY, initialState } from './modalSettings/modalSettings'
 import { STA_DAT_KEY } from './statisticData/statisticData'
+import choiceWeekReducer from './choiceWeek/choiceWeekSlice'
 
 const taskState = JSON.parse(localStorage.getItem(REC_FAV_KEY) || '[]');
 const settingsState = JSON.parse(localStorage.getItem(REC_SET_KEY) || '{}');
@@ -22,6 +23,7 @@ export const store = configureStore({
     modalDelete: modalDeleteReducer,
     modalEdit: modalEditReducer,
     modalSettings: modalSettingsReducer,
+    choiceWeek: choiceWeekReducer,
   }
 })
 

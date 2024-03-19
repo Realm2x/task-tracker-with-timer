@@ -1,3 +1,4 @@
+import { SelectorChoiceWeek } from './SelectorChoiceWeek';
 import { StatisticBlockContent } from './StatisticBlockContent';
 import { StatisticDayInfo } from './StatisticDayInfo';
 import './statisticpage.css';
@@ -7,7 +8,7 @@ export function StatisticPage() {
     <div className='statisticPage'>
       <div className="statistickHead">
         <h2 className='statisticTitle'>Ваша активность</h2>
-        <div className='statisticSelector'>Селектор</div>
+        <SelectorChoiceWeek />
       </div>
       <StatisticBlockContent />
       <StatisticDayInfo />
