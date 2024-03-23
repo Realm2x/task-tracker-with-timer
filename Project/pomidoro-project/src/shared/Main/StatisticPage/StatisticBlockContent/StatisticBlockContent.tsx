@@ -26,7 +26,7 @@ export function StatisticBlockContent() {
       <div className="statisticLeftBlock">
         <div className="statisticDayBlock">
           <h3 className='statisticDayTitle'>{dayOfWeek || 'Выберите день'}</h3>
-          <p className='statisticDayDescr'>Вы работали над задачами в течение <span className='statisticDaySpan'>{activeDay.length > 0 ? activeDay[0].timeWorking : 0} минуты</span></p>
+          <p className='statisticDayDescr'>Вы работали над задачами в течение <span className='statisticDaySpan'>{activeDay.length > 0 ? activeDay[0].timeWorking : 0} минут</span></p>
         </div>
         <div className="statisticPomidoroDay">
           <p className='statisticPomidoroDayDescr'><span><TomatoStat /></span> x {activeDay.length > 0 ? activeDay[0].quantityPomidoro : 0}</p>

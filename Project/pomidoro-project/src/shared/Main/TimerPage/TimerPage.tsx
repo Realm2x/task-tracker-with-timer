@@ -13,7 +13,7 @@ export function TimerPage() {
   const modalStateDelete = useSelector((state: RootState) => state.modalDelete);
   const modalStateEdit = useSelector((state: RootState) => state.modalEdit);
   const modalSettings = useSelector((state: RootState) => state.modalSettings);
-  const taskListDone = taskList.filter((task) => task.taskDone !== true ? task : null);
+  const taskListDone = taskList;
   const [isModal, setIsModal] = useState(modalStateDelete.modal);
   const [isEditModal, setIsEditModal] = useState(modalStateEdit.modal);
   const quantityPomidoro = taskListDone.map((task) => task.pomidoro);
@@ -23,8 +23,7 @@ export function TimerPage() {
   const pomidoroDuration = modalSettings.pomidoroDuration * sum;
   const taskNumber = taskListDone.length;
 
-
-  useEffect(() =>{
+  useEffect(() => {
     setIsModal(modalStateDelete.modal)
     setIsEditModal(modalStateEdit.modal)
   }, [modalStateDelete, isModal, isEditModal, modalStateEdit])
@@ -43,7 +42,7 @@ export function TimerPage() {
           </ul>
         </div>
         <TaskForm taskNumber={taskNumber}/>
-        <TaskList list={taskListDone} />
+        <TaskList />
         <div className="tasks__time">
           {pomidoroDuration} минут
         </div>
@@ -65,7 +64,7 @@ export function TimerPage() {
         <DeleteModal id={modalStateDelete.id} /> : null
       }
       {isEditModal ? 
-        <ChangeModal /> : null
+        <ChangeModal isEditModal={isEditModal} /> : null
       }
     </>
   );

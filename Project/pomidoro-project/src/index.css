@@ -115,6 +115,9 @@ html[data-theme="light"] {
   --color-statistic-text: var(--signal-black);
   /* MODAL */
   --background-modal: var(--white);
+  /* TAP */
+  --fill-button-tap: var(--silver);
+  --fill-button-tap-hover: var(--signal-black);
 }
 
 html[data-theme="dark"] {
@@ -149,6 +152,9 @@ html[data-theme="dark"] {
   --color-statistic-text: var(--white);
   /* MODAL */
   --background-modal: var(--ocean-blue);
+  /* TAP */
+  --fill-button-tap: var(--silver);
+  --fill-button-tap-hover: var(--signal-black);
 }
 
 body {

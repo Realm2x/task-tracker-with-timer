@@ -37,6 +37,9 @@ export const taskSlice = createSlice({
     taskDelete: (state, action: PayloadAction<string>) => {
       const index = state.findIndex(e => e.id === action.payload);
       state.splice(index, 1);
+      for (let i = 0; i < state.length; i++) {
+        state[i].taskNumber = i + 1;
+      }
       localStorage.setItem(REC_FAV_KEY, JSON.stringify(state));
     },
     taskIncrease: (state, action: PayloadAction<string>) => {
@@ -58,9 +61,14 @@ export const taskSlice = createSlice({
     taskChange: (state, action) => {
       state.map((e) => e.id === action.payload.id ? e.text = action.payload.text : e);
       localStorage.setItem(REC_FAV_KEY, JSON.stringify(state));
-    }
+    },
+    taskFilter: (state, action) => {
+      const newState = state = action.payload;
+      localStorage.setItem(REC_FAV_KEY, JSON.stringify(newState));
+      return newState;
+    },
   },
 })
 
-export const { taskAdded, taskDelete, taskIncrease, taskReduce, taskDone, taskChange } = taskSlice.actions
+export const { taskAdded, taskDelete, taskIncrease, taskReduce, taskDone, taskChange, taskFilter } = taskSlice.actions
 export default taskSlice.reducer

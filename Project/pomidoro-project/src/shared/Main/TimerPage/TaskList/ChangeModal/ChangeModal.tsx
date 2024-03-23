@@ -4,8 +4,14 @@ import { useEffect, useRef } from 'react';
 import { modalEditRemove, modalEditRemoveId, modalEditRemoveText } from '../../../../../store/modalEdit/modalEditSlice';
 import { AppDispatch } from '../../../../../store/store';
 import { ChangeForm } from '../ChangeForm';
+import { createPortal } from 'react-dom';
+import { CSSTransition } from 'react-transition-group';
 
-export function ChangeModal() {
+interface IChangeForm {
+  isEditModal: boolean;
+}
+
+export function ChangeModal({isEditModal}: IChangeForm) {
   const dispatch = useDispatch<AppDispatch>();
   function onClose() {
     dispatch(modalEditRemove(false));
@@ -30,12 +36,19 @@ export function ChangeModal() {
   const node = document.querySelector('#modal_root');
   if (!node) return null;
 
-  return (
-    <div className='modalWrapper'>
-      <div className='modalEdit' ref={ref}>
-        <h2 className='changeTitle'>Редактирование</h2>
-        <ChangeForm />
+  return createPortal((
+    <CSSTransition
+      in={isEditModal}
+      timeout={300}
+      classNames="modal"
+      unmountOnExit
+    >
+      <div className='modalWrapper'>
+        <div className='modalEdit' ref={ref}>
+          <h2 className='changeTitle'>Редактирование</h2>
+          <ChangeForm />
+        </div>
       </div>
-    </div>
-  );
+    </CSSTransition>
+  ), node);
 }
