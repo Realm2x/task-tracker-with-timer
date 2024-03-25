@@ -12,6 +12,11 @@
   background-color: rgba(0, 0, 0, .6);
 }
 
+.modales-enter-done .modal,
+.modales-enter-active .modal {
+  transform: scale(1);
+}
+
 .modal {
   display: flex;
   flex-direction: column;
@@ -24,6 +29,8 @@
   background-color: var(--background-modal);
   border-radius: 3px;
   z-index: 20;
+  transform: scale(0);
+  transition: transform .2s ease-in-out;
 }
 
 .modalText {

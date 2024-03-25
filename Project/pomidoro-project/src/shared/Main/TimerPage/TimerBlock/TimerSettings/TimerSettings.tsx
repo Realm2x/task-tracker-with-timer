@@ -13,7 +13,11 @@ import { BreakShortReduce } from './BreakShortReduce';
 import { FrequencyPomidoroReduce } from './FrequencyPomidoroReduce';
 import { FrequencyPomidoroIncrease } from './FrequencyPomidoroIncrease';
 
-export function TimerSettings() {
+interface ITimerSettings {
+  nodeSettingsRef: React.RefObject<HTMLDivElement>;
+}
+
+export function TimerSettings({nodeSettingsRef}: ITimerSettings) {
   const {pomidoroDuration, shortBreakDuration, longBreakDuration, longBreakFrequency} = useSelector((state: RootState) => state.modalSettings);
   const dispatch = useDispatch<AppDispatch>();
 
@@ -87,7 +91,7 @@ export function TimerSettings() {
   if (!node) return null;
   
   return createPortal((
-    <div className='modalWrapperSettings'>
+    <div className='modalWrapperSettings modales' ref={nodeSettingsRef}>
       <div className='modalSettings' ref={ref}>
         <h2 className='modalTitleSettings'>Настройка таймера</h2>
         <div className='buttonPomidoroSetting buttonSettings'>

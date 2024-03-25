@@ -5,8 +5,9 @@ import { TaskForm } from './TaskForm/TaskForm';
 import { TaskList } from './TaskList';
 import { TimerBlock } from './TimerBlock/TimerBlock';
 import { DeleteModal } from '../../DeleteModal';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ChangeModal } from './TaskList/ChangeModal';
+import { CSSTransition } from 'react-transition-group';
 
 export function TimerPage() {
   const taskList = useSelector((state: RootState) => state.task);
@@ -25,8 +26,14 @@ export function TimerPage() {
 
   useEffect(() => {
     setIsModal(modalStateDelete.modal)
+  }, [modalStateDelete])
+
+  useEffect(() => {
     setIsEditModal(modalStateEdit.modal)
-  }, [modalStateDelete, isModal, isEditModal, modalStateEdit])
+  }, [modalStateEdit])
+
+  const nodeChangeRef = useRef(null);
+  const nodeDeleteRef = useRef(null);
   
   return (
     <>
@@ -60,12 +67,24 @@ export function TimerPage() {
           null
         }
       </div>
-      {isModal ? 
-        <DeleteModal id={modalStateDelete.id} /> : null
-      }
-      {isEditModal ? 
-        <ChangeModal isEditModal={isEditModal} /> : null
-      }
+      <CSSTransition
+        in={isModal}
+        timeout={300}
+        classNames="modales"
+        unmountOnExit
+        nodeRef={nodeDeleteRef}
+      >
+        <DeleteModal id={modalStateDelete.id} nodeRef={nodeDeleteRef} />
+      </CSSTransition>
+      <CSSTransition
+        in={isEditModal}
+        timeout={300}
+        classNames="modales"
+        unmountOnExit
+        nodeRef={nodeChangeRef}
+      >
+        <ChangeModal nodeRef={nodeChangeRef} />
+      </CSSTransition>
     </>
   );
 }

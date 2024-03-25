@@ -195,3 +195,21 @@ button {
   cursor: pointer;
   background-color: inherit;
 }
+
+.modales-enter {
+  opacity: 0;
+}
+
+.modales-enter-active {
+  opacity: 1;
+  transition: opacity .2s;
+}
+
+.modales-exit {
+  opacity: 1;
+}
+
+.modales-exit-active {
+  opacity: 0;
+  transition: opacity .2s;
+}

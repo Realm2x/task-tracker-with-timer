@@ -25,9 +25,6 @@ export const modalEditSlice = createSlice({
     modalEditAddText: (state, action: PayloadAction<string>) => {
       state.descr = action.payload;
     },
-    modalEditRemove: (state, action: PayloadAction<boolean>) => {
-      state.modal = action.payload;
-    },
     modalEditRemoveId: (state, action: PayloadAction<string>) => {
       state.id = action.payload;
     },
@@ -37,5 +34,5 @@ export const modalEditSlice = createSlice({
   },
 })
 
-export const { modalEditAdd, modalEditAddId, modalEditAddText, modalEditRemove, modalEditRemoveId, modalEditRemoveText } = modalEditSlice.actions
+export const { modalEditAdd, modalEditAddId, modalEditAddText, modalEditRemoveId, modalEditRemoveText } = modalEditSlice.actions
 export default modalEditSlice.reducer

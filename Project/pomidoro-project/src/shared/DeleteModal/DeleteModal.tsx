@@ -9,9 +9,10 @@ import { AppDispatch } from '../../store/store';
 
 interface IDeleteModal {
   id: string;
+  nodeRef: React.RefObject<HTMLDivElement>;
 }
 
-export function DeleteModal({id}: IDeleteModal) {
+export function DeleteModal({id, nodeRef}: IDeleteModal) {
   const dispatch = useDispatch<AppDispatch>();
   function onClose() {
     dispatch(modalRemove(false));
@@ -36,7 +37,7 @@ export function DeleteModal({id}: IDeleteModal) {
   if (!node) return null;
   
   return createPortal((
-    <div className="modalWrapper">
+    <div className="modales modalWrapper" ref={nodeRef}>
       <div className="modal" ref={ref}>
         <p className='modalText'>
           Удалить задачу?

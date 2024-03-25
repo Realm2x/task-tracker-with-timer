@@ -1,20 +1,19 @@
 import { useDispatch } from 'react-redux';
 import './taskchangeinput.css';
 import { useEffect, useRef } from 'react';
-import { modalEditRemove, modalEditRemoveId, modalEditRemoveText } from '../../../../../store/modalEdit/modalEditSlice';
+import { modalEditAdd, modalEditRemoveId, modalEditRemoveText } from '../../../../../store/modalEdit/modalEditSlice';
 import { AppDispatch } from '../../../../../store/store';
 import { ChangeForm } from '../ChangeForm';
 import { createPortal } from 'react-dom';
-import { CSSTransition } from 'react-transition-group';
 
 interface IChangeForm {
-  isEditModal: boolean;
+  nodeRef: React.RefObject<HTMLDivElement>;
 }
 
-export function ChangeModal({isEditModal}: IChangeForm) {
+export function ChangeModal({nodeRef}: IChangeForm) {
   const dispatch = useDispatch<AppDispatch>();
   function onClose() {
-    dispatch(modalEditRemove(false));
+    dispatch(modalEditAdd(false));
     dispatch(modalEditRemoveId(''));
     dispatch(modalEditRemoveText(''));
   }
@@ -37,18 +36,11 @@ export function ChangeModal({isEditModal}: IChangeForm) {
   if (!node) return null;
 
   return createPortal((
-    <CSSTransition
-      in={isEditModal}
-      timeout={300}
-      classNames="modal"
-      unmountOnExit
-    >
-      <div className='modalWrapper'>
-        <div className='modalEdit' ref={ref}>
-          <h2 className='changeTitle'>Редактирование</h2>
-          <ChangeForm />
-        </div>
+    <div className='modales modalWrapper' ref={nodeRef}>
+      <div className='modalEdit' ref={ref}>
+        <h2 className='changeTitle'>Редактирование</h2>
+        <ChangeForm />
       </div>
-    </CSSTransition>
+    </div>
   ), node);
 }

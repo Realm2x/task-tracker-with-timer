@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../../../store/store';
 import './changeform.css';
 import { taskChange } from '../../../../../store/task/taskSlice';
-import { modalEditRemove, modalEditRemoveId } from '../../../../../store/modalEdit/modalEditSlice';
+import { modalEditAdd, modalEditRemoveId } from '../../../../../store/modalEdit/modalEditSlice';
 
 export function ChangeForm() {
   const {descr, id} = useSelector((state: RootState) => state.modalEdit);
@@ -17,7 +17,7 @@ export function ChangeForm() {
     if (text.length < 3 || text.length > 20) return setValidate(true);
 
     dispatch(taskChange({text, id}));
-    dispatch(modalEditRemove(false));
+    dispatch(modalEditAdd(false));
     dispatch(modalEditRemoveId(''));
   };
 
