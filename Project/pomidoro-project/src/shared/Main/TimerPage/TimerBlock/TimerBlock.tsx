@@ -48,16 +48,16 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
   }, [pomidoroDuration, shortBreakDuration, longBreakDuration, longBreakFrequency])
 
   useEffect(() => {
-    setIsSound(true);
+    setIsSound(false);
     if (pomidoro >= 1 && isWork && !isBreak) {
       const interval = setInterval(() => {
         setTimer((timer) => timer >= 0 ? --timer : 0);
       }, 1000)
       if (timer < 0) {
+        setIsSound(true);
         dispatch(timeWorking({formattedDate, pomidoroDuration}));
         dispatch(timeQuantityPomidoro(formattedDate));
         dispatch(timeFocus(formattedDate));
-        setIsSound(false);
         setIsWork(false);
         setIsBreak(true);
         if (isCurrentPomidoro % longBreakFrequency === 0) {
@@ -73,13 +73,13 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
   }, [isWork, timer, isBreak])
 
   useEffect(() => {
-    setIsSound(true);
+    setIsSound(false);
     if (isBreak && isWork) {
       const interval = setInterval(() => {
         setTimeBreak((timeBreak) => timeBreak >= 0 ? --timeBreak : 0);
       }, 1000)
       if (timeBreak < 0) {
-        setIsSound(false);
+        setIsSound(true);
         setIsBreak(false);
         setIsWork(false);
         setTimer(60 * pomidoroDuration);
@@ -113,6 +113,7 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
           setTimer={setTimer}
           id={id}
           isSound={isSound}
+          setIsSound={setIsSound}
           pomidoro={pomidoro}
         />
         :

@@ -14,4 +14,5 @@ export * from './Сheckmark';
 export * from './SettingsSvg';
 export * from './LightTheme';
 export * from './DarkTheme';
-export * from './DragVertical'
+export * from './DragVertical';
+export * from './Close';

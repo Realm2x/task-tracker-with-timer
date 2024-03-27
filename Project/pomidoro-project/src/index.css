@@ -113,6 +113,8 @@ html[data-theme="light"] {
   /* STATISTIC PAGE */
   --background-statistick-block: var(--white);
   --color-statistic-text: var(--signal-black);
+  --background-button-notification: var(--deep-red-orange);
+  --background-button-notification-hover: var(--light-titian);
   /* MODAL */
   --background-modal: var(--white);
   /* TAP */
@@ -150,6 +152,8 @@ html[data-theme="dark"] {
   /* STATISTIC PAGE */
   --background-statistick-block: var(--ocean-blue);
   --color-statistic-text: var(--white);
+  --background-button-notification: var(--deep-red-orange);
+  --background-button-notification-hover: var(--light-titian);
   /* MODAL */
   --background-modal: var(--ocean-blue);
   /* TAP */

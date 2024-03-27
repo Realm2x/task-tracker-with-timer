@@ -23,14 +23,14 @@ const SortableTask = ({list}: any) => {
     transition,
     transform: CSS.Transform.toString(transform),
   }
-
+  
   return (
-    <li className='taskList' style={style} >
-      <p className='taskListText'><span className='taskListNumber'>{list.pomidoro}</span>{list.text}</p>
-      <button className='taskListButtonTap' ref={setNodeRef} {...attributes} {...listeners} ><DragVertical /></button>
-      <Dropdown button={<TaskMenuButton />} >
-        <TaskMenu id={list.id} pomidoro={list.pomidoro} text={list.text} />
-      </Dropdown>
+    <li className='taskListItem' style={style} key={list.id}>
+        <p className='taskListText'><span className='taskListNumber'>{list.pomidoro}</span>{list.text}</p>
+        <button className='taskListButtonTap' ref={setNodeRef} {...attributes} {...listeners} ><DragVertical /></button>
+        <Dropdown button={<TaskMenuButton />} >
+          <TaskMenu id={list.id} pomidoro={list.pomidoro} text={list.text} />
+        </Dropdown>
     </li>
   )
 }
@@ -41,7 +41,7 @@ export function TaskList() {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(taskFilter(tasks))
+    dispatch(taskFilter(tasks));
   }, [tasks]);
 
   useEffect(() => {
@@ -64,7 +64,7 @@ export function TaskList() {
   
   return (
     <>
-      <ul className="tasksList">
+      <ul className="tasksLists">
         <DndContext collisionDetection={closestCenter} onDragEnd={onDragEnd} >
           <SortableContext items={tasks} strategy={verticalListSortingStrategy} >
             {tasks.map((list) => (

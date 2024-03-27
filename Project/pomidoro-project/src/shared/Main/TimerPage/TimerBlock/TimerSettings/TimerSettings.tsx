@@ -12,6 +12,7 @@ import { BreakShortIncrease } from './BreakShortIncrease';
 import { BreakShortReduce } from './BreakShortReduce';
 import { FrequencyPomidoroReduce } from './FrequencyPomidoroReduce';
 import { FrequencyPomidoroIncrease } from './FrequencyPomidoroIncrease';
+import { ButtonNotification } from './ButtonNotification';
 
 interface ITimerSettings {
   nodeSettingsRef: React.RefObject<HTMLDivElement>;
@@ -135,7 +136,8 @@ export function TimerSettings({nodeSettingsRef}: ITimerSettings) {
           </div>
         </div>
         <div className='buttonNotificationSetting'>
-          <button></button>
+          <p className='buttonTitleName'>Уведомления</p>
+          <ButtonNotification />
         </div>
       </div>
     </div>

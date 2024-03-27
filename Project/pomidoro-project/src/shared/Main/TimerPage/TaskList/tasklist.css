@@ -1,9 +1,9 @@
-.tasksList {
+.tasksLists {
   overflow: hidden;
   margin-bottom: 19px;
 }
 
-.taskList {
+.taskListItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,7 +15,7 @@
   transition: background-color .3s ease-in-out;
 }
 
-.taskList:hover {
+.taskListItem:hover {
   background-color: var(--background-hover-list);
 }
 

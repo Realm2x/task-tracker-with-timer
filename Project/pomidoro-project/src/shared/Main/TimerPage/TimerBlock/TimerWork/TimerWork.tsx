@@ -6,6 +6,9 @@ import { ButtonTimerStop } from '../ButtonTimerStop';
 import timerBell from '../../../../../assets/timerBell.mp3';
 import './timerwork.css';
 import { TimerButton } from '../TimerButton';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../../store/store';
 
 interface ITimerWork {
   work: boolean;
@@ -21,10 +24,30 @@ interface ITimerWork {
   id: string;
   isSound: boolean;
   pomidoro: number;
+  setIsSound: (value: boolean) => void;
 }
 
-export function TimerWork({work, pause, text, minutes, seconds, taskNumber, setIsWork, setIsPause, setTimer, id, isCurrentPomidoro, isSound, pomidoro}: ITimerWork) {
-  const soundTimer = <audio autoPlay src={timerBell} ></audio>
+export function TimerWork({work, pause, text, minutes, seconds, taskNumber, setIsWork, setIsPause, setTimer, id, isCurrentPomidoro, isSound, setIsSound, pomidoro}: ITimerWork) {
+  const {notification} = useSelector((state: RootState) => state.modalSettings);
+  
+  useEffect(() => {
+    if (isSound === true && notification === true) {
+      const playSoundAndAlert = () => {
+        new Audio(timerBell).play();
+      }
+      setTimeout(() => {
+        alert("Время отдохнуть!");
+      }, 100);
+      setIsSound(false);
+      return playSoundAndAlert;
+    } else if (isSound === true) {
+      const playSoundAndAlert = () => {
+        new Audio(timerBell).play();
+      }
+      return playSoundAndAlert;
+    }
+  }, [isSound])
+  
 
   return (
     <>
@@ -56,7 +79,6 @@ export function TimerWork({work, pause, text, minutes, seconds, taskNumber, setI
           {!work && !pause ? <ButtonTimerStop switches={work} setIsWork={setIsWork} setIsPause={setIsPause} setTimer={setTimer}/> : null}
           {!work && pause ? <ButtonTimerContinue setIsWork={setIsWork} /> : null}
           {!work && pause ? <ButtonTimerDone setIsWork={setIsWork} setIsPause={setIsPause} setTimer={setTimer} id={id}/> : null}
-          {isSound ? soundTimer : null}
         </div>
       </div>
     </>
