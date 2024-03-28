@@ -1,4 +1,4 @@
-.left-content {
+.leftContent {
   display: flex;
   flex-direction: column;
   max-width: 531px;
@@ -50,7 +50,7 @@
   color: var(--color-text);
 }
 
-.right-content {
+.rightContent {
   max-width: 733px;
   width: 100%;
   border-radius: 5px;

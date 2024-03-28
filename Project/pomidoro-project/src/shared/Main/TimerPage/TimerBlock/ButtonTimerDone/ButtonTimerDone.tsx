@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import './buttontimerdone.css';
+import styles from './buttontimerdone.module.css';
 import { AppDispatch, RootState } from '../../../../../store/store';
 import { taskDelete, taskDone } from '../../../../../store/task/taskSlice';
 import { quantityTimeOnPause } from '../../../../../store/statisticData/statisticData';
@@ -28,6 +28,6 @@ export function ButtonTimerDone({setIsWork, setIsPause, setTimer, id}: IButtonTi
   };
     
   return (
-    <button className="timerButton timerButtonDone" onClick={handleDone}>Сделано</button>
+    <button className={`${styles.timerButton} ${styles.timerButtonDone}`} onClick={handleDone}>Сделано</button>
   );
 }

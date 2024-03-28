@@ -1,4 +1,4 @@
-import './menueditbutton.css';
+import styles from './menueditbutton.module.css';
 import { MenuEdit } from '../../../../../../assets';
 import { AppDispatch } from '../../../../../../store/store';
 import { useDispatch } from 'react-redux';
@@ -20,7 +20,7 @@ export function MenuEditButton({id, text}: MenuEdit) {
   }
   
   return (
-    <button className='taskMenuEdit menuButton' onClick={onClick}>
+    <button className={`${styles.taskMenuEdit} ${styles.menuButton}`} onClick={onClick}>
       <MenuEdit />
       Редактировать
     </button>

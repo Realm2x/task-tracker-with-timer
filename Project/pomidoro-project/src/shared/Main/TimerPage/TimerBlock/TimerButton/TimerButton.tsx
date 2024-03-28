@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { TimerSvg } from '../../../../../assets';
 import { AppDispatch } from '../../../../../store/store';
 import { taskIncrease } from '../../../../../store/task/taskSlice';
-import './timerbuttonsettings.css';
+import styles from './timerbuttonsettings.module.css';
 
 interface ITimerSettings {
   id: string;
@@ -19,7 +19,7 @@ export function TimerButton({id, pomidoro}: ITimerSettings) {
   };
 
   return (
-    <button className="timerButtonPomidor" onClick={increase}>
+    <button className={styles.timerButtonPomidor} onClick={increase}>
       <TimerSvg />
     </button>
   );

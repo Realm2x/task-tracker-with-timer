@@ -1,13 +1,13 @@
-import './statistic.css';
+import styles from './statistic.module.css';
 import { Equalizer } from '../../../assets';
 import { Link } from 'react-router-dom';
 
 export function Statistic() {
   return (
-    <div className='headerEqualizer'>
-      <Link to="/stat" className='headerEqualizerLink'>
+    <div className={styles.headerEqualizer}>
+      <Link to="/stat" className={styles.headerEqualizerLink}>
         <Equalizer />
-        <p className='headerEqualizerText'>Статистика</p>
+        <p className={styles.headerEqualizerText}>Статистика</p>
       </Link>
     </div>
   );

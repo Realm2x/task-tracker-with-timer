@@ -16,3 +16,4 @@ export * from './LightTheme';
 export * from './DarkTheme';
 export * from './DragVertical';
 export * from './Close';
+export * from './Pomidor';

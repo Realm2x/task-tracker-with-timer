@@ -1,0 +1,24 @@
+.timerButton {
+  padding: 19px 50px;
+  height: 55px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 17px;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.timerButtonDone {
+  color: var(--light-titian);
+  border-color: var(--light-titian);
+  cursor: pointer;
+  transition: color .3s ease-in-out, background-color .3s ease-in;
+}
+
+.timerButtonDone {
+  border: 2px solid var(--light-titian);
+}
+
+.timerButtonDone:hover {
+  color: var(--white);
+  background-color: var(--light-titian);
+}

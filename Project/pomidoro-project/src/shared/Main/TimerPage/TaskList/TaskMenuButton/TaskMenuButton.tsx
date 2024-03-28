@@ -1,9 +1,9 @@
 import { MenuTask } from '../../../../../assets';
-import './taskmenubutton.css';
+import styles from './taskmenubutton.module.css';
 
 export function TaskMenuButton() {
   return (
-    <button className='task__menu-button' type="button">
+    <button className={styles.task__menuButton} type="button">
       <MenuTask />
     </button>
   );

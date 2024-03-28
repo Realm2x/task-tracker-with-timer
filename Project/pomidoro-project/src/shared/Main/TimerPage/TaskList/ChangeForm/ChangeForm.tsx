@@ -1,7 +1,7 @@
 import { useState, ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../../../store/store';
-import './changeform.css';
+import styles from './changeform.module.css';
 import { taskChange } from '../../../../../store/task/taskSlice';
 import { modalEditAdd, modalEditRemoveId } from '../../../../../store/modalEdit/modalEditSlice';
 
@@ -27,14 +27,14 @@ export function ChangeForm() {
   }
 
   return (
-    <form className='changeForm' action="" onSubmit={onSubmit}>
-      {validate ? <span className='task-form__validate'>Нужно ввести от 3 до 20 символов</span> : null}
-      <label htmlFor='editInput' className='changeFormLabel'>Редактирование</label>
-      <input id='editInput' name='editInput' className='changeFormInput' type="text"
+    <form className={styles.changeForm} action="" onSubmit={onSubmit}>
+      {validate ? <span className={styles.taskForm__validate}>Нужно ввести от 3 до 20 символов</span> : null}
+      <label htmlFor='editInput' className={styles.changeFormLabel}>Редактирование</label>
+      <input id='editInput' name='editInput' className={styles.changeFormInput} type="text"
         onChange={onChange}
         value={text}
       />
-      <button className='changeFormButton'>
+      <button className={styles.changeFormButton}>
         Изменить
       </button>
     </form>

@@ -1,4 +1,4 @@
-import './timerpage.css';
+import styles from './timerpage.module.css';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
 import { TaskForm } from './TaskForm/TaskForm';
@@ -37,24 +37,24 @@ export function TimerPage() {
   
   return (
     <>
-      <div className="left-content">
-        <div className="manual">
-          <h2 className='maunal__title'>Ура! Теперь можно начать работать:</h2>
-          <ul className="manual__checklist">
-            <li className="manual__list"><span>Выберите категорию и напишите название текущей задачи</span></li>
-            <li className="manual__list"><span>Запустите таймер («помидор»)</span></li>
-            <li className="manual__list"><span>Работайте пока «помидор» не прозвонит</span></li>
-            <li className="manual__list"><span>Сделайте короткий перерыв (3-5 минут)</span></li>
-            <li className="manual__list"><span>Продолжайте работать «помидор» за «помидором», пока задача не будут выполнена. Каждые 4 «помидора» делайте длинный перерыв (15-30 минут).</span></li>
+      <div className={styles.leftContent}>
+        <div className={styles.manual}>
+          <h2 className={styles.maunal__title}>Ура! Теперь можно начать работать:</h2>
+          <ul className={styles.manual__checklist}>
+            <li className={styles.manual__list}><span>Выберите категорию и напишите название текущей задачи</span></li>
+            <li className={styles.manual__list}><span>Запустите таймер («помидор»)</span></li>
+            <li className={styles.manual__list}><span>Работайте пока «помидор» не прозвонит</span></li>
+            <li className={styles.manual__list}><span>Сделайте короткий перерыв (3-5 минут)</span></li>
+            <li className={styles.manual__list}><span>Продолжайте работать «помидор» за «помидором», пока задача не будут выполнена. Каждые 4 «помидора» делайте длинный перерыв (15-30 минут).</span></li>
           </ul>
         </div>
         <TaskForm taskNumber={taskNumber}/>
         <TaskList />
-        <div className="tasks__time">
+        <div className={styles.tasks__time}>
           {pomidoroDuration} минут
         </div>
       </div>
-      <div className='right-content'>
+      <div className={styles.rightContent}>
         {taskListDone.length > 0 ? 
           <TimerBlock
             pomidoro={taskListDone[0].pomidoro}

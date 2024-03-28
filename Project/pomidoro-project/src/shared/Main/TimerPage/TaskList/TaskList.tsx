@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Dropdown } from '../../../Dropdown';
 import { TaskMenu } from './TaskMenu';
 import { TaskMenuButton } from './TaskMenuButton';
-import './tasklist.css';
+import styles from './tasklist.module.css';
 import { DndContext, DragEndEvent, closestCenter } from '@dnd-kit/core';
 import { SortableContext, arrayMove, useSortable, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import {CSS} from '@dnd-kit/utilities';
@@ -25,9 +25,9 @@ const SortableTask = ({list}: any) => {
   }
   
   return (
-    <li className='taskListItem' style={style} key={list.id}>
-        <p className='taskListText'><span className='taskListNumber'>{list.pomidoro}</span>{list.text}</p>
-        <button className='taskListButtonTap' ref={setNodeRef} {...attributes} {...listeners} ><DragVertical /></button>
+    <li className={styles.taskListItem} style={style} key={list.id}>
+        <p className={styles.taskListText}><span className={styles.taskListNumber}>{list.pomidoro}</span>{list.text}</p>
+        <button className={styles.taskListButtonTap} ref={setNodeRef} {...attributes} {...listeners} ><DragVertical /></button>
         <Dropdown button={<TaskMenuButton />} >
           <TaskMenu id={list.id} pomidoro={list.pomidoro} text={list.text} />
         </Dropdown>
@@ -64,7 +64,7 @@ export function TaskList() {
   
   return (
     <>
-      <ul className="tasksLists">
+      <ul className={styles.tasksLists}>
         <DndContext collisionDetection={closestCenter} onDragEnd={onDragEnd} >
           <SortableContext items={tasks} strategy={verticalListSortingStrategy} >
             {tasks.map((list) => (

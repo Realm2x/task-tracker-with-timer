@@ -1,13 +1,13 @@
 import { SelectorChoiceWeek } from './SelectorChoiceWeek';
 import { StatisticBlockContent } from './StatisticBlockContent';
 import { StatisticDayInfo } from './StatisticDayInfo';
-import './statisticpage.css';
+import styles from './statisticpage.module.css';
 
 export function StatisticPage() {
   return (
-    <div className='statisticPage'>
-      <div className="statistickHead">
-        <h2 className='statisticTitle'>Ваша активность</h2>
+    <div className={styles.statisticPage}>
+      <div className={styles.statistickHead}>
+        <h2 className={styles.statisticTitle}>Ваша активность</h2>
         <SelectorChoiceWeek />
       </div>
       <StatisticBlockContent />

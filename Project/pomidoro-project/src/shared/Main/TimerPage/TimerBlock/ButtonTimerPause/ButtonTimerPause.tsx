@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import './buttontimerpause.css';
+import styles from './buttontimerpause.module.css';
 import { AppDispatch } from '../../../../../store/store';
 import { timeOnPause } from '../../../../../store/statisticData/statisticData';
 
@@ -21,6 +21,6 @@ export function ButtonTimerPause({setIsWork, setIsPause}: IButtonTimerPause) {
   };
 
   return (
-    <button className="timerButton timerButtonLeft timerButtonPause" onClick={handlePause}>Пауза</button>
+    <button className={`${styles.timerButton} ${styles.timerButtonLeft} ${styles.timerButtonPause}`} onClick={handlePause}>Пауза</button>
   );
 }

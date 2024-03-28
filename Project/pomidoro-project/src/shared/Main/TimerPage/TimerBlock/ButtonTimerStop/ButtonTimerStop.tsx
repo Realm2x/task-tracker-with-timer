@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../../../store/store';
-import './buttontimerstop.css';
+import styles from './buttontimerstop.module.css';
 import { stopsQuantity } from '../../../../../store/statisticData/statisticData';
 
 interface IButtonTimerStop {
@@ -27,9 +27,9 @@ export function ButtonTimerStop({switches, setIsWork, setIsPause, setTimer}: IBu
   return (
     <>
       {switches ? 
-      <button className="timerButton timerButtonStop timerButtonStopActive" onClick={handleStop} disabled={!switches}>Стоп</button>
+      <button className={`${styles.timerButton} ${styles.timerButtonStop} ${styles.timerButtonStopActive}`} onClick={handleStop} disabled={!switches}>Стоп</button>
         :
-      <button className="timerButton timerButtonStop" onClick={handleStop} disabled={!switches}>Стоп</button>
+      <button className={`${styles.timerButton} ${styles.timerButtonStop}`} onClick={handleStop} disabled={!switches}>Стоп</button>
       }
     </>
   );

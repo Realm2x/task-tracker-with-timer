@@ -1,10 +1,10 @@
-.task-form {
+.taskForm {
   display: flex;
   flex-direction: column;
   margin-bottom: 25px;
 }
 
-.task-form__input {
+.taskForm__input {
   max-width: 370px;
   padding: 19px 15px;
   margin-bottom: 25px;
@@ -17,7 +17,7 @@
   transition: background-color .3s linear;
 }
 
-.task-form__button {
+.taskForm__button {
   max-width: 173px;
   padding: 19px 0;
   font-weight: 500;
@@ -28,11 +28,11 @@
   transition: background-color .3s ease-in-out;
 }
 
-.task-form__button:hover {
+.taskForm__button:hover {
   background-color: var(--moderate-yellow-green);
 }
 
-.task-form__validate {
+.taskForm__validate {
   font-weight: 300;
   font-size: 16px;
   color: var(--light-titian);

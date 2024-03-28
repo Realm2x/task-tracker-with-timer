@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../../../store/store';
-import './buttontimerskip.css';
+import styles from './buttontimerskip.module.css';
 import { taskDone } from '../../../../../store/task/taskSlice';
 
 interface IButtonTimerSkip {
@@ -32,6 +32,6 @@ export function ButtonTimerSkip({setIsBreak, setTimer, setIsWork, setIsCurrentPo
   };
 
   return (
-    <button className="timerButton timerButtonSkip" onClick={handleBreak}>Пропустить</button>
+    <button className={`${styles.timerButton} ${styles.timerButtonSkip}`} onClick={handleBreak}>Пропустить</button>
   );
 }

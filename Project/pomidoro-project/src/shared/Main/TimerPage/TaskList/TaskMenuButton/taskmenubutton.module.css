@@ -1,4 +1,4 @@
-.task__menu-button {
+.task__menuButton {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -10,7 +10,7 @@
   transition: background-color .3s ease-in-out, fill .3s ease-in-out;
 }
 
-.task__menu-button svg circle {
+.task__menuButton svg circle {
   fill: var(--fill-task-menu);
 }
 

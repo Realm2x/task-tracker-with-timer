@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import './buttontimercontinue.css';
+import styles from './buttontimercontinue.module.css';
 import { AppDispatch } from '../../../../../store/store';
 import { quantityTimeOnPause } from '../../../../../store/statisticData/statisticData';
 
@@ -19,6 +19,6 @@ export function ButtonTimerContinue({setIsWork}: IButtonTimerContinue) {
   };
 
   return (
-    <button className="timerButton timerButtonLeft timerButtonStart" onClick={handleContinue}>Продолжить</button>
+    <button className={`${styles.timerButton} ${styles.timerButtonLeft} ${styles.timerButtonStart}`} onClick={handleContinue}>Продолжить</button>
   );
 }

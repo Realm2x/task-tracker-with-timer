@@ -4,11 +4,13 @@ import { ButtonTimerPause } from '../ButtonTimerPause';
 import { ButtonTimerStart } from '../ButtonTimerStart';
 import { ButtonTimerStop } from '../ButtonTimerStop';
 import timerBell from '../../../../../assets/timerBell.mp3';
-import './timerwork.css';
+import styles from './timerwork.module.css';
 import { TimerButton } from '../TimerButton';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../../store/store';
+import { Pomidor } from '../../../../../assets';
+import { motion } from 'framer-motion';
 
 interface ITimerWork {
   work: boolean;
@@ -47,32 +49,58 @@ export function TimerWork({work, pause, text, minutes, seconds, taskNumber, setI
       return playSoundAndAlert;
     }
   }, [isSound])
-  
+
+  const variants = {
+    active: {
+      scale: [2],
+      rotate: [0, 360],
+    },
+    pause: { scale: [1], },
+  }
 
   return (
     <>
       {work || pause ?  
-      <div className="timerTitle timerTitleActive">
-        <h3 className='timerTitleTask'>{text}</h3>
-        <p className='timerTitleNumber'>Помидор {isCurrentPomidoro}</p>
+      <div className={`${styles.timerTitle} ${styles.timerTitleActive}`}>
+        <h3 className={styles.timerTitleTask}>{text}</h3>
+        <p className={styles.timerTitleNumber}>Помидор {isCurrentPomidoro}</p>
       </div>
         : 
-      <div className="timerTitle">
-        <h3 className='timerTitleTask'>{text}</h3>
-        <p className='timerTitleNumber'>Помидор {isCurrentPomidoro}</p>
+      <div className={styles.timerTitle}>
+        <h3 className={styles.timerTitleTask}>{text}</h3>
+        <p className={styles.timerTitleNumber}>Помидор {isCurrentPomidoro}</p>
       </div>
       }
-      <div className="timerCounter">
-        <div className="timerTask">
+      <div className={styles.timerCounter}>
+        <motion.div className={styles.timerPomidorImg}
+          animate={work ? 'active' : 'pause'}
+          variants={variants}
+          transition={{
+            duration: 1,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatDelay: 1
+          }}
+          drag
+          dragConstraints={{
+            top: -20,
+            left: -20,
+            right: 20,
+            bottom: 20,
+          }}
+        >
+          <Pomidor />
+        </motion.div>
+        <div className={styles.timerTask}>
           {work || pause ? 
-          <p className="timerNumber timerNumberActive">{minutes}:{seconds} </p>
+          <p className={`${styles.timerNumber} ${styles.timerNumberActive}`}>{minutes}:{seconds} </p>
           :
-          <p className="timerNumber">{minutes}:{seconds} </p>
+          <p className={styles.timerNumber}>{minutes}:{seconds} </p>
           }
           <TimerButton id={id} pomidoro={pomidoro} />
         </div>
-        <p className='timerTaskText'><span className='timerTaskNumber'>Задача {taskNumber} - </span>{text} </p>
-        <div className="timerButtonGroup">
+        <p className={styles.timerTaskText}><span className={styles.timerTaskNumber}>Задача {taskNumber} - </span>{text} </p>
+        <div className={styles.timerButtonGroup}>
           {work ? <ButtonTimerPause setIsWork={setIsWork} setIsPause={setIsPause}/> : null}
           {work ? <ButtonTimerStop switches={work} setIsWork={setIsWork} setIsPause={setIsPause} setTimer={setTimer}/> : null}
           {!work && !pause ? <ButtonTimerStart setIsWork={setIsWork}/> : null}

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../../../../store/store';
-import './buttontimerstart.css';
+import styles from './buttontimerstart.module.css';
 import { dataAdd } from '../../../../../store/statisticData/statisticData';
 
 interface IButtonTimerStart {
@@ -17,6 +17,6 @@ export function ButtonTimerStart({setIsWork}: IButtonTimerStart) {
   };
 
   return (
-    <button className="timerButton timerButtonLeft timerButtonStart" onClick={handleStart}>Старт</button>
+    <button className={`${styles.timerButton} ${styles.timerButtonLeft} ${styles.timerButtonStart}`} onClick={handleStart}>Старт</button>
   );
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getPadTime } from '../../../../helpers/getPadTimes';
-import './timerblock.css';
+import styles from './timerblock.module.css';
 import { TimerBreak } from './TimerBreak';
 import { TimerWork } from './TimerWork';
 import { AppDispatch, RootState } from '../../../../store/store';
@@ -98,7 +98,7 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
   }, [isBreak, timeBreak, isWork])
 
   return (
-    <div className="timerBlock">
+    <div className={styles.timerBlock}>
       {!isBreak ?
         <TimerWork
           work={isWork}

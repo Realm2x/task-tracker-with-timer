@@ -1,4 +1,4 @@
-import './taskform.css';
+import styles from './taskform.module.css';
 import { ChangeEvent, useState } from "react";
 import { AppDispatch } from "../../../../store/store";
 import { useDispatch } from "react-redux";
@@ -27,13 +27,13 @@ export function TaskForm({taskNumber}: ITaskForm) {
   }
 
   return (
-    <form className='task-form' onSubmit={onSubmit} action="">
-      {validate ? <span className='task-form__validate'>Нужно ввести от 3 до 20 символов</span> : null}
+    <form className={styles.taskForm} onSubmit={onSubmit} action="">
+      {validate ? <span className={styles.taskForm__validate}>Нужно ввести от 3 до 20 символов</span> : null}
       <input onChange={onChange}
         value={taskDescription}
         id='task'
-        className='task-form__input' placeholder='Название задачи' />
-      <button className='task-form__button'>Добавить</button>
+        className={styles.taskForm__input} placeholder='Название задачи' />
+      <button className={styles.taskForm__button}>Добавить</button>
     </form>
   );
 }

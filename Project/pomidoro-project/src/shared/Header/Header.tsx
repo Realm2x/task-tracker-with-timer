@@ -1,14 +1,14 @@
 import { ChangeTheme } from './ChangeTheme';
-import './header.css';
+import styles from './header.module.css';
 import { Logo } from './Logo'
 import { SettingsTimer } from './SettingsTimer';
 import { Statistic } from './Statistic/Statistic';
 
 export function Header() {
   return (
-    <header className='header'>
+    <header className={styles.header}>
       <Logo />
-      <div className='headerContent'>
+      <div className={styles.headerContent}>
         <Statistic />
         <ChangeTheme />
         <SettingsTimer />

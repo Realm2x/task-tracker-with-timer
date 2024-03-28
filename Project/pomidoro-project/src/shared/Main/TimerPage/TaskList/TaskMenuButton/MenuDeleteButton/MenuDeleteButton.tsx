@@ -1,5 +1,5 @@
 import { MenuDelete } from '../../../../../../assets';
-import './menudeletebutton.css';
+import styles from './menudeletebutton.module.css';
 import { AppDispatch } from '../../../../../../store/store';
 import { useDispatch } from 'react-redux';
 import { modalAdd, modalAddId } from '../../../../../../store/modalDelete/modalSlice';
@@ -19,7 +19,7 @@ export function MenuDeleteButton({id}: IMenuDeleteButton) {
 
   return (
     <>
-      <button className='taskMenuDelete menuButton' onClick={onClick}>
+      <button className={`${styles.taskMenuDelete} ${styles.menuButton}`} onClick={onClick}>
         <MenuDelete />
         Удалить
       </button>

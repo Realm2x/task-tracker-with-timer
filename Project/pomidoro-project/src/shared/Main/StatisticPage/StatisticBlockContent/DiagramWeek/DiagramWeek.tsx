@@ -1,4 +1,4 @@
-import './diagramweek.css';
+import styles from './diagramweek.module.css';
 import 'chart.js/auto';
 import { Bar, getElementAtEvent } from 'react-chartjs-2';
 import { useDispatch, useSelector } from 'react-redux';
@@ -41,7 +41,7 @@ export function DiagramWeek() {
   }
 
   return (
-    <div className='statisticDiagramWeek'>
+    <div className={styles.statisticDiagramWeek}>
       <Bar
         data={data}
         ref={chartRef}

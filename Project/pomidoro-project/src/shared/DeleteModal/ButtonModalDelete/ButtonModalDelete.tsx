@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import './buttonmodal.css';
+import styles from './buttonmodal.module.css';
 import { AppDispatch } from '../../../store/store';
 import { taskDelete } from '../../../store/task/taskSlice';
 import { modalAdd, modalAddId } from '../../../store/modalDelete/modalSlice';
@@ -18,6 +18,6 @@ export function ButtonModalDelete({id}: ButtonModal) {
   };
 
   return (
-    <button className='modalButtonDelete' onClick={removeTask}>Удалить</button>
+    <button className={styles.modalButtonDelete} onClick={removeTask}>Удалить</button>
   );
 }

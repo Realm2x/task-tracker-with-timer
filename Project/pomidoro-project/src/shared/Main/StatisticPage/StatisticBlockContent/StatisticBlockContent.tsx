@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { TomatoStat } from '../../../../assets';
 import { RootState } from '../../../../store/store';
 import { DiagramWeek } from './DiagramWeek';
-import './statisticblockcontent.css';
+import styles from './statisticblockcontent.module.css';
 import { useEffect, useState } from 'react';
 
 export function StatisticBlockContent() {
@@ -22,15 +22,15 @@ export function StatisticBlockContent() {
   }, [statistic]);
   
   return (  
-    <div className='statisticBlockContent'>
-      <div className="statisticLeftBlock">
-        <div className="statisticDayBlock">
-          <h3 className='statisticDayTitle'>{dayOfWeek || 'Выберите день'}</h3>
-          <p className='statisticDayDescr'>Вы работали над задачами в течение <span className='statisticDaySpan'>{activeDay.length > 0 ? activeDay[0].timeWorking : 0} минут</span></p>
+    <div className={styles.statisticBlockContent}>
+      <div className={styles.statisticLeftBlock}>
+        <div className={styles.statisticDayBlock}>
+          <h3 className={styles.statisticDayTitle}>{dayOfWeek || 'Выберите день'}</h3>
+          <p className={styles.statisticDayDescr}>Вы работали над задачами в течение <span className='statisticDaySpan'>{activeDay.length > 0 ? activeDay[0].timeWorking : 0} минут</span></p>
         </div>
-        <div className="statisticPomidoroDay">
-          <p className='statisticPomidoroDayDescr'><span><TomatoStat /></span> x {activeDay.length > 0 ? activeDay[0].quantityPomidoro : 0}</p>
-          <button className='statisticPomidoroDayButton'>{activeDay.length > 0 ? activeDay[0].quantityPomidoro : 0} помидор</button>
+        <div className={styles.statisticPomidoroDay}>
+          <p className={styles.statisticPomidoroDayDescr}><span><TomatoStat /></span> x {activeDay.length > 0 ? activeDay[0].quantityPomidoro : 0}</p>
+          <button className={styles.statisticPomidoroDayButton}>{activeDay.length > 0 ? activeDay[0].quantityPomidoro : 0} помидор</button>
         </div>
       </div>
       <DiagramWeek />

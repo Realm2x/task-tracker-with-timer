@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { MenuReduce } from '../../../../../../assets';
 import { AppDispatch } from '../../../../../../store/store';
-import './menureducebutton.css';
+import styles from './menureducebutton.module.css';
 import { taskReduce } from '../../../../../../store/task/taskSlice';
 
 interface IMenuReduceButton {
@@ -19,7 +19,7 @@ export function MenuReduceButton({id, pomidoro}: IMenuReduceButton) {
   };
 
   return (
-    <button className='taskMenuReduce menuButton' onClick={reduce} >
+    <button className={`${styles.taskMenuReduce} ${styles.menuButton}`} onClick={reduce} >
       <MenuReduce/>
       Уменьшить
     </button>

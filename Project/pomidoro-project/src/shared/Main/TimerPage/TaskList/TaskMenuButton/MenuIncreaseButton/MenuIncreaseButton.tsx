@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { MenuIncrease } from '../../../../../../assets';
-import './menuincreasebutton.css';
+import styles from './menuincreasebutton.module.css';
 import { AppDispatch } from '../../../../../../store/store';
 import { taskIncrease } from '../../../../../../store/task/taskSlice';
 
@@ -19,7 +19,7 @@ export function MenuIncreaseButton({id, pomidoro}: IMenuDeleteButton) {
   };
 
   return (
-    <button className='taskNenuIncrease menuButton' onClick={increase}>
+    <button className={`${styles.taskMenuIncrease} ${styles.menuButton}`} onClick={increase}>
       <MenuIncrease />
       Увеличить
     </button>

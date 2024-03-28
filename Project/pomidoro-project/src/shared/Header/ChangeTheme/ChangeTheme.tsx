@@ -1,6 +1,6 @@
 import { DarkTheme, LightTheme } from '../../../assets';
 import { useTheme } from '../../../hooks/use-theme';
-import './changetheme.css';
+import styles from './changetheme.module.css';
 
 export function ChangeTheme() {
   const { theme, setTheme } = useTheme();
@@ -10,7 +10,7 @@ export function ChangeTheme() {
   }
 
   return (
-    <button className="changeThemeButton" onClick={handleLightThemeClick}>
+    <button className={styles.changeThemeButton} onClick={handleLightThemeClick}>
       {theme === 'light' ? 
         <LightTheme />
           :

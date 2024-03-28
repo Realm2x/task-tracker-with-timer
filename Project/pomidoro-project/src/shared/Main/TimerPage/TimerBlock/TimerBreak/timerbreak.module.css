@@ -1,7 +1,3 @@
-.timerBlock {
-  position: relative;
-}
-
 .timerTitle {
   display: flex;
   justify-content: space-between;
@@ -38,6 +34,19 @@
   flex-direction: column;
   align-items: center;
   padding: 70px 0;
+}
+
+.timerPomidorImg {
+  position: absolute;
+  left: 100px;
+  top: 30%;
+}
+
+.timerPomidorImg svg {
+  top: 30%;
+  width: 40px;
+  height: 40px;
+  fill: var(--deep-red-orange);
 }
 
 .timerTask {

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../../../../store/store';
-import './buttonnotification.css';
+import styles from './buttonnotification.module.css';
 import { changesNotification } from '../../../../../../store/modalSettings/modalSettings';
 
 export function ButtonNotification() {
@@ -14,9 +14,9 @@ export function ButtonNotification() {
   return (
     <>
     {notification ? 
-      <button className='notificationBtn notificationBtnActive' onClick={onClick}>Выключить</button>
+      <button className={`${styles.notificationBtn} ${styles.notificationBtnActive}`} onClick={onClick}>Выключить</button>
         :
-      <button className='notificationBtn notificationBtnDeactivate' onClick={onClick}>Включить</button>
+      <button className={`${styles.notificationBtn} ${styles.notificationBtnDeactivate}`} onClick={onClick}>Включить</button>
     }
     </>
   );
