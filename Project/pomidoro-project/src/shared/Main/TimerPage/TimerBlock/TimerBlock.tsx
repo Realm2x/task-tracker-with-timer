@@ -55,9 +55,12 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
       const interval = setInterval(() => {
         setTimer((timer) => timer >= 0 ? --timer : 0);
       }, 1000)
+      if (timer % 60 === 0 && timer < pomidoroDuration * 60) { 
+        const duration = 1;
+        dispatch(timeWorking({formattedDate, duration}));
+      };
       if (timer < 0) {
         setIsSound(true);
-        dispatch(timeWorking({formattedDate, pomidoroDuration}));
         dispatch(timeQuantityPomidoro(formattedDate));
         dispatch(timeFocus(formattedDate));
         setIsWork(false);
