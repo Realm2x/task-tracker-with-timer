@@ -10,13 +10,13 @@ export const dateConversion = ({statistic, currentWeekDay}: dateConversionInterf
   
   for (let i = 1; i <= 7; i++) {
     const currentDate = new Date();
-    const index = currentDate.getDay() + currentWeekDay;
-    currentDate.setDate(currentDate.getDate() - (index - i));
-    const foundObject = statistic.find(obj => obj.currentDate === currentDate.toISOString().split('T')[0]);
+    const index = currentDate.getDay() + currentWeekDay;    // получаю индекс текущего дня недели
+    currentDate.setDate(currentDate.getDate() - (index - i)); // нахожу дату понедельника этой недели
+    const foundObject = statistic.find(obj => obj.currentDate === currentDate.toISOString().split('T')[0]); // ищу совпадения в массиве
     
-    if (foundObject) {
+    if (foundObject) { // если совпадение есть то добавляю объект в массив
       orderedObjects.push(foundObject);
-    } else {
+    } else { // иначе добавляю в массив объект с текущим днем и временем работы 0
       orderedObjects.push({currentDate: currentDate.toISOString().split('T')[0], timeWorking: 0} as IStatisticData);
     }
     

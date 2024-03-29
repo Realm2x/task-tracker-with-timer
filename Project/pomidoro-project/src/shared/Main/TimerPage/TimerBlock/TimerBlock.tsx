@@ -18,12 +18,12 @@ interface ITimerBlock {
 
 export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}: ITimerBlock) {
   const {pomidoroDuration, shortBreakDuration, longBreakDuration, longBreakFrequency} = useSelector((state: RootState) => state.modalSettings);
-  const [timer, setTimer] = useState(60 * pomidoroDuration);
-  const [timeBreak, setTimeBreak] = useState(60 * shortBreakDuration);
   const [isWork, setIsWork] = useState(false);
   const [isPause, setIsPause] = useState(false);
   const [isBreak, setIsBreak] = useState(false);
   const [isSound, setIsSound] = useState(false);
+  const [timer, setTimer] = useState(60 * pomidoroDuration);
+  const [timeBreak, setTimeBreak] = useState(60 * shortBreakDuration);
   const [isCurrentPomidoro, setIsCurrentPomidoro] = useState(currentPomidoro);
   const minutes = getPadTime(Math.floor(timer / 60));
   const seconds = getPadTime(timer - parseInt(minutes) * 60);
@@ -35,6 +35,7 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
   
   const dispatch = useDispatch<AppDispatch>();
 
+  // Для того, чтобы настройки таймера не применялись во время работы таймера
   useEffect(() => {
     if (!isWork && !isPause && !isBreak) {
       setTimer(60 * pomidoroDuration)
@@ -47,6 +48,7 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
     }
   }, [pomidoroDuration, shortBreakDuration, longBreakDuration, longBreakFrequency])
 
+  // Логика таймера во время работы
   useEffect(() => {
     setIsSound(false);
     if (pomidoro >= 1 && isWork && !isBreak) {
@@ -72,6 +74,7 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
     }
   }, [isWork, timer, isBreak])
 
+  // Логика таймера во время перерыва
   useEffect(() => {
     setIsSound(false);
     if (isBreak && isWork) {

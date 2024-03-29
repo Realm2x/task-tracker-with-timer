@@ -23,7 +23,7 @@ export function DiagramWeek() {
   const chartRef = useRef<any>();
   
   const onClick = (event: any) => {
-    const elem = getElementAtEvent(chartRef.current, event)
+    const elem = getElementAtEvent(chartRef.current, event);
     
     if (elem.length > 0) {
       const index = elem[0].index;
