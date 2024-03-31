@@ -22,14 +22,14 @@ interface ITimerWork {
   setIsWork: (value: boolean) => void;
   setIsPause: (value: boolean) => void;
   setTimer: (value: number) => void;
-  isCurrentPomidoro: number;
+  currentPomidoro: number;
   id: string;
   isSound: boolean;
   pomidoro: number;
   setIsSound: (value: boolean) => void;
 }
 
-export function TimerWork({work, pause, text, minutes, seconds, taskNumber, setIsWork, setIsPause, setTimer, id, isCurrentPomidoro, isSound, setIsSound, pomidoro}: ITimerWork) {
+export function TimerWork({work, pause, text, minutes, seconds, taskNumber, setIsWork, setIsPause, setTimer, id, currentPomidoro, isSound, setIsSound, pomidoro}: ITimerWork) {
   const {notification} = useSelector((state: RootState) => state.modalSettings);
   
   useEffect(() => {
@@ -63,12 +63,12 @@ export function TimerWork({work, pause, text, minutes, seconds, taskNumber, setI
       {work || pause ?  
       <div className={`${styles.timerTitle} ${styles.timerTitleActive}`}>
         <h3 className={styles.timerTitleTask}>{text}</h3>
-        <p className={styles.timerTitleNumber}>Помидор {isCurrentPomidoro}</p>
+        <p className={styles.timerTitleNumber}>Помидор {currentPomidoro}</p>
       </div>
         : 
       <div className={styles.timerTitle}>
         <h3 className={styles.timerTitleTask}>{text}</h3>
-        <p className={styles.timerTitleNumber}>Помидор {isCurrentPomidoro}</p>
+        <p className={styles.timerTitleNumber}>Помидор {currentPomidoro}</p>
       </div>
       }
       <div className={styles.timerCounter}>

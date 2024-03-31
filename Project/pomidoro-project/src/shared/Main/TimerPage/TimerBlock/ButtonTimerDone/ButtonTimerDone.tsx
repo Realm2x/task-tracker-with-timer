@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './buttontimerdone.module.css';
 import { AppDispatch, RootState } from '../../../../../store/store';
-import { taskDelete, taskDone } from '../../../../../store/task/taskSlice';
-import { quantityTimeOnPause } from '../../../../../store/statisticData/statisticData';
+import { taskDelete } from '../../../../../store/task/taskSlice';
+import { quantityTimeOnPause, timeQuantityPomidoro } from '../../../../../store/statisticData/statisticData';
 
 interface IButtonTimerDone {
   setIsWork: (value: boolean) => void;
@@ -22,8 +22,8 @@ export function ButtonTimerDone({setIsWork, setIsPause, setTimer, id}: IButtonTi
     setIsWork(false);
     setIsPause(false);
     setTimer(60 * pomidoroDuration);
-    dispatch(taskDone(id));
     dispatch(quantityTimeOnPause(formattedDate));
+    dispatch(timeQuantityPomidoro(formattedDate));
     dispatch(taskDelete(id));
   };
     

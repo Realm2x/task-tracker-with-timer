@@ -5,7 +5,7 @@ import { TimerBreak } from './TimerBreak';
 import { TimerWork } from './TimerWork';
 import { AppDispatch, RootState } from '../../../../store/store';
 import { useDispatch, useSelector } from 'react-redux';
-import { taskDone } from '../../../../store/task/taskSlice';
+import { taskCurrentPomidoro, taskDelete, taskReduce } from '../../../../store/task/taskSlice';
 import { timeFocus, timeQuantityPomidoro, timeWorking } from '../../../../store/statisticData/statisticData';
 
 interface ITimerBlock {
@@ -24,7 +24,6 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
   const [isSound, setIsSound] = useState(false);
   const [timer, setTimer] = useState(60 * pomidoroDuration);
   const [timeBreak, setTimeBreak] = useState(60 * shortBreakDuration);
-  const [isCurrentPomidoro, setIsCurrentPomidoro] = useState(currentPomidoro);
   const minutes = getPadTime(Math.floor(timer / 60));
   const seconds = getPadTime(timer - parseInt(minutes) * 60);
   const minutesBreak = getPadTime(Math.floor(timeBreak / 60));
@@ -40,7 +39,7 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
     if (!isWork && !isPause && !isBreak) {
       setTimer(60 * pomidoroDuration)
       setTimeBreak(60 * shortBreakDuration)
-      if (isCurrentPomidoro % longBreakFrequency === 0) {
+      if (currentPomidoro % longBreakFrequency === 0) {
         setTimeBreak(60 * longBreakDuration);
       } else {
         setTimeBreak(60 * shortBreakDuration);
@@ -65,7 +64,18 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
         dispatch(timeFocus(formattedDate));
         setIsWork(false);
         setIsBreak(true);
-        if (isCurrentPomidoro % longBreakFrequency === 0) {
+        if (pomidoro > 1) {
+          dispatch(taskReduce(id));
+          dispatch(taskCurrentPomidoro(id));
+        } else {
+          setIsBreak(false);
+          setIsWork(false);
+          setTimer(60 * pomidoroDuration);
+          dispatch(timeFocus(formattedDate));
+          const deleteTask = () => dispatch(taskDelete(id));
+          setTimeout(deleteTask, 100);
+        }
+        if (currentPomidoro % longBreakFrequency === 0) {
           setTimeBreak(60 * longBreakDuration);
         } else {
           setTimeBreak(60 * shortBreakDuration);
@@ -90,12 +100,6 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
         setIsWork(false);
         setTimer(60 * pomidoroDuration);
         dispatch(timeFocus(formattedDate));
-        if (isCurrentPomidoro < pomidoro) {
-          setIsCurrentPomidoro(isCurrentPomidoro + 1)
-        } else {
-          setIsCurrentPomidoro(1)
-          dispatch(taskDone(id));
-        }
       }
       return () => {
         clearInterval(interval);
@@ -110,7 +114,7 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
           work={isWork}
           pause={isPause}
           text={taskText}
-          isCurrentPomidoro={isCurrentPomidoro}
+          currentPomidoro={currentPomidoro}
           minutes={minutes}
           seconds={seconds}
           taskNumber={taskNumber}
@@ -129,7 +133,7 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
           pause={isPause}
           text={taskText}
           pomidoro={pomidoro}
-          isCurrentPomidoro={isCurrentPomidoro}
+          currentPomidoro={currentPomidoro}
           minutes={minutesBreak}
           seconds={secondsBreak}
           taskNumber={taskNumber}
@@ -137,7 +141,6 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
           setIsPause={setIsPause}
           setTimer={setTimer}
           setIsBreak={setIsBreak}
-          setIsCurrentPomidoro={setIsCurrentPomidoro}
           isSound={isSound}
           setIsSound={setIsSound}
         />

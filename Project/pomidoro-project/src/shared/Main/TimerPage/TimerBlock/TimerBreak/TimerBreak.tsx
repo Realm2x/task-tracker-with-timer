@@ -17,7 +17,7 @@ interface ITimerBreak {
   pause: boolean;
   text: string;
   pomidoro: number;
-  isCurrentPomidoro: number;
+  currentPomidoro: number;
   minutes: string;
   seconds: string;
   taskNumber: number;
@@ -25,12 +25,11 @@ interface ITimerBreak {
   setIsPause: (value: boolean) => void;
   setTimer: (value: number) => void;
   setIsBreak: (value: boolean) => void;
-  setIsCurrentPomidoro: (value: number) => void;
   isSound: boolean;
   setIsSound: (value: boolean) => void;
 }
 
-export function TimerBreak({id, work, pause, text, minutes, seconds, taskNumber, setIsWork, setIsPause, setTimer, setIsBreak, setIsCurrentPomidoro, isCurrentPomidoro, isSound, setIsSound, pomidoro}: ITimerBreak) {
+export function TimerBreak({id, work, pause, text, minutes, seconds, taskNumber, setIsWork, setIsPause, setTimer, setIsBreak, currentPomidoro, isSound, setIsSound, pomidoro}: ITimerBreak) {
   const {notification} = useSelector((state: RootState) => state.modalSettings);
   
   useEffect(() => {
@@ -64,9 +63,9 @@ export function TimerBreak({id, work, pause, text, minutes, seconds, taskNumber,
       <div className={`${styles.timerTitle} ${styles.timerTitleBreak}`}>
         <h3 className={styles.timerTitleTask}>{text}</h3>
         {work ? 
-          <p className={styles.timerTitleNumber}>Перерыв {isCurrentPomidoro}</p>
+          <p className={styles.timerTitleNumber}>Перерыв {currentPomidoro - 1}</p>
           :
-          <p className={styles.timerTitleNumber}>Помидор {isCurrentPomidoro}</p>
+          <p className={styles.timerTitleNumber}>Перерыв {currentPomidoro - 1}</p>
         }
       </div>
       <div className={styles.timerCounter}>
@@ -100,11 +99,11 @@ export function TimerBreak({id, work, pause, text, minutes, seconds, taskNumber,
         <p className={styles.timerTaskText}><span className={styles.timerTaskNumber}>Задача {taskNumber} - </span>{text} </p>
         <div className={styles.timerButtonGroup}>
           {work ? <ButtonTimerPause setIsWork={setIsWork} setIsPause={setIsPause}/> : null}
-          {work ? <ButtonTimerSkip id={id} pomidoro={pomidoro} setIsBreak={setIsBreak} setIsWork={setIsWork} setTimer={setTimer} setIsCurrentPomidoro={setIsCurrentPomidoro} isCurrentPomidoro={isCurrentPomidoro} setIsSound={setIsSound} />  : null}
+          {work ? <ButtonTimerSkip id={id} setIsBreak={setIsBreak} setIsWork={setIsWork} setTimer={setTimer} setIsSound={setIsSound} />  : null}
           {!work && !pause ? <ButtonTimerStart setIsWork={setIsWork}/> : null}
-          {!work && !pause ? <ButtonTimerSkip id={id} pomidoro={pomidoro} setIsBreak={setIsBreak} setIsWork={setIsWork} setTimer={setTimer} setIsCurrentPomidoro={setIsCurrentPomidoro} isCurrentPomidoro={isCurrentPomidoro} setIsSound={setIsSound} /> : null}
+          {!work && !pause ? <ButtonTimerSkip id={id} setIsBreak={setIsBreak} setIsWork={setIsWork} setTimer={setTimer} setIsSound={setIsSound} /> : null}
           {!work && pause ? <ButtonTimerContinue setIsWork={setIsWork} /> : null}
-          {!work && pause ? <ButtonTimerSkip id={id} pomidoro={pomidoro} setIsBreak={setIsBreak} setIsWork={setIsWork} setTimer={setTimer} setIsCurrentPomidoro={setIsCurrentPomidoro} isCurrentPomidoro={isCurrentPomidoro} setIsSound={setIsSound} /> : null}
+          {!work && pause ? <ButtonTimerSkip id={id} setIsBreak={setIsBreak} setIsWork={setIsWork} setTimer={setTimer} setIsSound={setIsSound} /> : null}
         </div>
       </div>
     </>

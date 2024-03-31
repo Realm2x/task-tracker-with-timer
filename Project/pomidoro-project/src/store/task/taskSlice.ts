@@ -9,7 +9,6 @@ interface TextState {
   pomidoro: number;
   currentPomidoro: number;
   taskNumber: number;
-  taskDone: boolean;
 }
 
 const initialState = [] as TextState[];
@@ -30,7 +29,6 @@ export const taskSlice = createSlice({
           pomidoro: 1,
           currentPomidoro: 1,
           taskNumber,
-          taskDone: false
         } as TextState
       }),
     },
@@ -54,10 +52,6 @@ export const taskSlice = createSlice({
       state.map((e) => e.id === action.payload ? e.pomidoro-- : e);
       localStorage.setItem(REC_FAV_KEY, JSON.stringify(state));
     },
-    taskDone: (state, action: PayloadAction<string>) => {
-      state.map((e) => e.id === action.payload ? e.taskDone = true : e);
-      localStorage.setItem(REC_FAV_KEY, JSON.stringify(state));
-    },
     taskChange: (state, action) => {
       state.map((e) => e.id === action.payload.id ? e.text = action.payload.text : e);
       localStorage.setItem(REC_FAV_KEY, JSON.stringify(state));
@@ -70,5 +64,5 @@ export const taskSlice = createSlice({
   },
 })
 
-export const { taskAdded, taskDelete, taskIncrease, taskReduce, taskDone, taskChange, taskFilter } = taskSlice.actions
+export const { taskAdded, taskDelete, taskIncrease, taskReduce, taskChange, taskFilter, taskCurrentPomidoro } = taskSlice.actions
 export default taskSlice.reducer

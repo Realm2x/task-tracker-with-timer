@@ -8,19 +8,18 @@ interface dateConversionInterface {
 export const dateConversion = ({statistic, currentWeekDay}: dateConversionInterface) => {
   const orderedObjects: IStatisticData[] = [];
   
-  for (let i = 1; i <= 7; i++) {
+  for (let i = 0; i <= 6; i++) {
     const currentDate = new Date();
-    const index = currentDate.getDay() + currentWeekDay;    // получаю индекс текущего дня недели
-    currentDate.setDate(currentDate.getDate() - (index - i)); // нахожу дату понедельника этой недели
+    currentDate.setDate(currentDate.getDate() - (i + currentWeekDay)); // нахожу дату понедельника этой недели
     const foundObject = statistic.find(obj => obj.currentDate === currentDate.toISOString().split('T')[0]); // ищу совпадения в массиве
     
     if (foundObject) { // если совпадение есть то добавляю объект в массив
-      orderedObjects.push(foundObject);
+      orderedObjects.unshift(foundObject);
     } else { // иначе добавляю в массив объект с текущим днем и временем работы 0
-      orderedObjects.push({currentDate: currentDate.toISOString().split('T')[0], timeWorking: 0} as IStatisticData);
+      orderedObjects.unshift({currentDate: currentDate.toISOString().split('T')[0], timeWorking: 0} as IStatisticData);
     }
     
   }
-  
+  console.log(orderedObjects);
   return orderedObjects;
 }
