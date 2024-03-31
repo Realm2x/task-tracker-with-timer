@@ -41,7 +41,7 @@ export const statisticDataSlice = createSlice({
       }),
     },
     timeWorking: (state, action) => {
-      state.map((e) => e.currentDate === action.payload.formattedDate ? e.timeWorking += action.payload.duration : e);
+      state.map((e) => e.currentDate === action.payload ? e.timeWorking += 1 : e);
       localStorage.setItem(STA_DAT_KEY, JSON.stringify(state));
     },
     timeQuantityPomidoro: (state, action: PayloadAction<string>) => {
