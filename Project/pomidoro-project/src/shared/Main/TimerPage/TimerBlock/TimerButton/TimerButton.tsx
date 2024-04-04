@@ -10,9 +10,9 @@ interface ITimerSettings {
   setTimerBreak: (value: number) => void;
 }
 
-export function TimerButton({timer, setTimer, isBreak, isWork, timerBreak, setTimerBreak}: ITimerSettings) {
+export function TimerButton({timer, setTimer, isBreak, timerBreak, setTimerBreak}: ITimerSettings) {
   const increase = (event: React.MouseEvent<HTMLButtonElement>) => {
-    if (isWork) setTimer(timer + 60);
+    if (!isBreak) setTimer(timer + 60);
     if (isBreak) setTimerBreak(timerBreak + 60);
   };
 
