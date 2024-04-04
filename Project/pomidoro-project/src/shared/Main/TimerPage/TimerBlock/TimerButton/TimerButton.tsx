@@ -1,21 +1,19 @@
-import { useDispatch } from 'react-redux';
 import { TimerSvg } from '../../../../../assets';
-import { AppDispatch } from '../../../../../store/store';
-import { taskIncrease } from '../../../../../store/task/taskSlice';
 import styles from './timerbuttonsettings.module.css';
 
 interface ITimerSettings {
-  id: string;
-  pomidoro: number;
+  timer: number;
+  setTimer: (value: number) => void;
+  isBreak: boolean;
+  isWork: boolean;
+  timerBreak: number;
+  setTimerBreak: (value: number) => void;
 }
 
-export function TimerButton({id, pomidoro}: ITimerSettings) {
-  const dispatch = useDispatch<AppDispatch>();
+export function TimerButton({timer, setTimer, isBreak, isWork, timerBreak, setTimerBreak}: ITimerSettings) {
   const increase = (event: React.MouseEvent<HTMLButtonElement>) => {
-    if (pomidoro < 8) {
-      event.preventDefault();
-      dispatch(taskIncrease(id));
-    }
+    if (isWork) setTimer(timer + 60);
+    if (isBreak) setTimerBreak(timerBreak + 60);
   };
 
   return (

@@ -4,7 +4,7 @@ import { Bar, getElementAtEvent } from 'react-chartjs-2';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../../../../store/store';
 import { useEffect, useRef, useState } from 'react';
-import { dateConversion } from '../../../../../hooks/statDaysOfWeek';
+import { dateConversion } from '../../../../../hooks/dateConversion';
 import { activeDay } from '../../../../../store/statisticData/statisticData';
 
 export function DiagramWeek() {

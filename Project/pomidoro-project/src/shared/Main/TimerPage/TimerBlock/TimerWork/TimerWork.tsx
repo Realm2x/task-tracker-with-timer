@@ -15,12 +15,16 @@ import { motion } from 'framer-motion';
 interface ITimerWork {
   work: boolean;
   pause: boolean;
+  isBreak: boolean;
+  timerBreak: number;
+  setTimerBreak: (value: number) => void;
   text: string;
   minutes: string;
   seconds: string;
   taskNumber: number;
   setIsWork: (value: boolean) => void;
   setIsPause: (value: boolean) => void;
+  timer: number;
   setTimer: (value: number) => void;
   currentPomidoro: number;
   id: string;
@@ -29,7 +33,7 @@ interface ITimerWork {
   setIsSound: (value: boolean) => void;
 }
 
-export function TimerWork({work, pause, text, minutes, seconds, taskNumber, setIsWork, setIsPause, setTimer, id, currentPomidoro, isSound, setIsSound, pomidoro}: ITimerWork) {
+export function TimerWork({work, pause, isBreak, timerBreak, setTimerBreak, text, minutes, seconds, taskNumber, setIsWork, setIsPause, setTimer, timer, id, currentPomidoro, pomidoro, isSound, setIsSound}: ITimerWork) {
   const {notification} = useSelector((state: RootState) => state.modalSettings);
   
   useEffect(() => {
@@ -97,7 +101,7 @@ export function TimerWork({work, pause, text, minutes, seconds, taskNumber, setI
           :
           <p className={styles.timerNumber}>{minutes}:{seconds} </p>
           }
-          <TimerButton id={id} pomidoro={pomidoro} />
+          <TimerButton timer={timer} setTimer={setTimer} isBreak={isBreak} isWork={work} timerBreak={timerBreak} setTimerBreak={setTimerBreak} />
         </div>
         <p className={styles.timerTaskText}><span className={styles.timerTaskNumber}>Задача {taskNumber} - </span>{text} </p>
         <div className={styles.timerButtonGroup}>
@@ -106,7 +110,7 @@ export function TimerWork({work, pause, text, minutes, seconds, taskNumber, setI
           {!work && !pause ? <ButtonTimerStart setIsWork={setIsWork}/> : null}
           {!work && !pause ? <ButtonTimerStop switches={work} setIsWork={setIsWork} setIsPause={setIsPause} setTimer={setTimer}/> : null}
           {!work && pause ? <ButtonTimerContinue setIsWork={setIsWork} /> : null}
-          {!work && pause ? <ButtonTimerDone setIsWork={setIsWork} setIsPause={setIsPause} setTimer={setTimer} id={id}/> : null}
+          {!work && pause ? <ButtonTimerDone setIsWork={setIsWork} setIsPause={setIsPause} setTimer={setTimer} id={id} pomidoro={pomidoro} />: null}
         </div>
       </div>
     </>

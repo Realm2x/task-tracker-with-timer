@@ -15,7 +15,10 @@ interface ITimerBreak {
   id: string;
   work: boolean;
   pause: boolean;
+  timerBreak: number;
+  setTimerBreak: (value: number) => void;
   text: string;
+  isBreak: boolean;
   pomidoro: number;
   currentPomidoro: number;
   minutes: string;
@@ -23,13 +26,14 @@ interface ITimerBreak {
   taskNumber: number;
   setIsWork: (value: boolean) => void;
   setIsPause: (value: boolean) => void;
+  timer: number;
   setTimer: (value: number) => void;
   setIsBreak: (value: boolean) => void;
   isSound: boolean;
   setIsSound: (value: boolean) => void;
 }
 
-export function TimerBreak({id, work, pause, text, minutes, seconds, taskNumber, setIsWork, setIsPause, setTimer, setIsBreak, currentPomidoro, isSound, setIsSound, pomidoro}: ITimerBreak) {
+export function TimerBreak({id, work, pause, isBreak, timerBreak, setTimerBreak, text, minutes, seconds, taskNumber, setIsWork, setIsPause, setTimer, timer, setIsBreak, currentPomidoro, isSound, setIsSound}: ITimerBreak) {
   const {notification} = useSelector((state: RootState) => state.modalSettings);
   
   useEffect(() => {
@@ -94,7 +98,7 @@ export function TimerBreak({id, work, pause, text, minutes, seconds, taskNumber,
           :
           <p className={styles.timerNumber}>{minutes}:{seconds} </p>
           }
-          <TimerButton id={id} pomidoro={pomidoro} />
+          <TimerButton timer={timer} setTimer={setTimer} isBreak={isBreak} isWork={work} timerBreak={timerBreak} setTimerBreak={setTimerBreak} />
         </div>
         <p className={styles.timerTaskText}><span className={styles.timerTaskNumber}>Задача {taskNumber} - </span>{text} </p>
         <div className={styles.timerButtonGroup}>

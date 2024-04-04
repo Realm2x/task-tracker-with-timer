@@ -112,6 +112,7 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
         <TimerWork
           work={isWork}
           pause={isPause}
+          isBreak={isBreak}
           text={taskText}
           currentPomidoro={currentPomidoro}
           minutes={minutes}
@@ -119,7 +120,10 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
           taskNumber={taskNumber}
           setIsWork={setIsWork}
           setIsPause={setIsPause}
+          timer={timer}
           setTimer={setTimer}
+          setTimerBreak={setTimeBreak}
+          timerBreak={timeBreak}
           id={id}
           isSound={isSound}
           setIsSound={setIsSound}
@@ -130,6 +134,7 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
           id={id}
           work={isWork}
           pause={isPause}
+          isBreak={isBreak}
           text={taskText}
           pomidoro={pomidoro}
           currentPomidoro={currentPomidoro}
@@ -138,7 +143,10 @@ export function TimerBlock({pomidoro, taskText, taskNumber, id, currentPomidoro}
           taskNumber={taskNumber}
           setIsWork={setIsWork}
           setIsPause={setIsPause}
+          timer={timer}
           setTimer={setTimer}
+          setTimerBreak={setTimeBreak}
+          timerBreak={timeBreak}
           setIsBreak={setIsBreak}
           isSound={isSound}
           setIsSound={setIsSound}
