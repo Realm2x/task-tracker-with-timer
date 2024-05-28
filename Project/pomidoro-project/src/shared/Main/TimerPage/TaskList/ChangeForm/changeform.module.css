@@ -1,0 +1,27 @@
+.changeFormLabel {
+  display: block;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.changeFormInput {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+  color: var(--color-text);
+  background-color: var(--background-input);
+}
+
+.changeFormButton {
+  padding: 15px 25px;
+  font-size: 16px;
+  color: var(--white);
+  background-color: var(--moderate-yellow-green);
+  transition: background-color .3s ease-in-out;
+}
+
+.changeFormButton:hover {
+  background-color: var(--yellow-ochre);
+}

@@ -1,0 +1,22 @@
+.changeThemeButton {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+.changeThemeButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.changeThemeButton svg g circle,
+.changeThemeButton svg g path,
+.changeThemeButton svg {
+  fill: var(--light-titian);
+  transition: fill .3s ease-in-out;
+}
+
+.changeThemeButton:hover svg g circle,
+.changeThemeButton:hover svg g path{
+  fill: var(--deep-red-orange);
+}

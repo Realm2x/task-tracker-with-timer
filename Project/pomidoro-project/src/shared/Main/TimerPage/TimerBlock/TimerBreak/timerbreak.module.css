@@ -1,0 +1,150 @@
+.timerTitle {
+  display: flex;
+  justify-content: space-between;
+  padding: 19px 40px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: var(--color-text-2);
+  background-color: var(--background-timer-title);
+  transition: background-color .3s linear;
+}
+
+.timerTitleBreak {
+  background-color: var(--yellow-ochre);
+}
+
+.timerTitleActive {
+  background-color: var(--color-timer-active);
+  color: var(--color-text-2);
+}
+
+.timerTitleTask {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.timerTitleNumber {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.timerCounter {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 70px 0;
+}
+
+.timerPomidorImg {
+  position: absolute;
+  left: 100px;
+  top: 30%;
+}
+
+.timerPomidorImg svg {
+  top: 30%;
+  width: 40px;
+  height: 40px;
+  fill: var(--deep-red-orange);
+}
+
+.timerTask {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timerNumber {
+  width: 375px;
+  font-weight: 200;
+  font-size: 150px;
+  line-height: 150px;
+  color: var(--color-timer);
+}
+
+.timerNumberActive {
+  color: var(--light-titian);
+}
+
+.timerNumberBreak {
+  color: var(--yellow-ochre);
+}
+
+.timerTaskText {
+  margin-bottom: 32px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--color-text);
+}
+
+.timerTaskNumber {
+  color: var(--color-text-3);
+}
+
+.timerButtonSettings svg {
+  fill: var(--silver);
+  transition: fill .3s ease-in-out;
+}
+
+.timerButtonSettings:hover svg {
+  fill: var(--moderate-yellow-green);
+}
+
+.timerButtonGroup {
+  display: flex;
+}
+
+.timerButton {
+  padding: 19px 50px;
+  height: 55px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 17px;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.timerButtonLeft {
+  margin-right: 25px;
+}
+
+.timerButtonStart,
+.timerButtonPause {
+  color: var(--white);
+  background-color: var(--yellow-ochre);
+}
+
+.timerButtonStart:hover,
+.timerButtonPause:hover {
+  background-color: var(--moderate-yellow-green);
+}
+
+.timerButtonStop {
+  color: var(--color-button-timer-stop);
+  border: 2px solid var(--silver);
+  cursor: default;
+  background-color: var(--background-button-timer-stop);
+  transition: background-color .3s linear;
+}
+
+.timerButtonDone,
+.timerButtonSkip {
+  border: 2px solid var(--light-titian);
+}
+
+.timerButtonStopActive,
+.timerButtonDone,
+.timerButtonSkip {
+  color: var(--light-titian);
+  border-color: var(--light-titian);
+  cursor: pointer;
+  transition: color .3s ease-in-out, background-color .3s ease-in;
+}
+
+.timerButtonStopActive:hover,
+.timerButtonDone:hover,
+.timerButtonSkip:hover {
+  color: var(--white);
+  background-color: var(--light-titian);
+}

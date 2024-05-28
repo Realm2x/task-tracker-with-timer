@@ -1,0 +1,84 @@
+.modalWrapperSettings {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 20;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.modales-enter-done .modalSettings,
+.modales-enter-active .modalSettings {
+  transform: scale(1);
+}
+
+.modalSettings {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  max-width: 300px;
+  padding: 25px 50px;
+  box-shadow: 0px 0px 20px 0px #00000026;
+  background-color: var(--background-color-modal);
+  border-radius: 5px;
+  z-index: 20;
+  transform: scale(0);
+  transition: transform .2s ease-in-out;
+}
+
+.modalTitleSettings {
+  margin-bottom: 20px;
+  color: var(--color-settings-title);
+}
+
+.buttonSettings:not(:last-child) {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--signal-black);
+  margin-bottom: 10px;
+}
+
+.buttonSettingsGroup {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buttonTitleName {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--color-settings-title);
+}
+
+.buttonSettingsText {
+  font-size: 30px;
+  color: var(--color-settings-text);
+}
+
+.buttonSettingsIncrease {
+  width: 40px;
+  height: 40px;
+  transform: rotate(180deg);
+  transition: fill .3s ease-in-out;
+}
+
+.buttonSettingsIncrease:hover {
+  fill: var(--ocean-blue);
+}
+
+.buttonSettingsReduce {
+  width: 40px;
+  height: 40px;
+  transition: fill .3s ease-in-out;
+}
+
+.buttonSettingsReduce:hover {
+  fill: var(--ocean-blue);
+}

@@ -1,0 +1,47 @@
+.tasksLists {
+  overflow: hidden;
+  margin-bottom: 19px;
+}
+
+.taskListItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 17px;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--border-list);
+  transition: background-color .3s ease-in-out;
+}
+
+.taskListItem:hover {
+  background-color: var(--background-hover-list);
+}
+
+.taskListText {
+  width: 100%;
+  text-align: left;
+  padding: 19px 5px;
+}
+
+.taskListButtonTap {
+  margin-right: 15px;
+  fill: var(--fill-button-tap);
+  transition: fill .3s ease-in-out;
+}
+
+.taskListButtonTap:hover {
+  fill: var(--fill-button-tap-hover);
+}
+
+.taskListNumber {
+  display: inline-block;
+  text-align: center;
+  margin-right: 10px;    
+  width: 25px;
+  height: 25px;
+  padding: 4px 7px;
+  border: 1px solid var(--border-number-list);
+  border-radius: 100%;
+}

@@ -1,0 +1,221 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-weight: 200;
+  font-style: normal;
+
+  src: local("SFUI-Ultralight"),
+  url(./fonts/SFUIDisplay-Ultralight.woff2) format(woff2),
+  url(./fonts/SFUIDisplay-Ultralight.woff) format(woff);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-weight: 300;
+  font-style: normal;
+
+  src: local("SFUI-Light"),
+  url(./fonts/SFUIDisplay-Light.woff2) format(woff2),
+  url(./fonts/SFUIDisplay-Light.woff) format(woff);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-weight: 400;
+  font-style: normal;
+
+  src: local("SFUI-Regular"),
+  url(./fonts/SFUIDisplay-Regular.woff2) format(woff2),
+  url(./fonts/SFUIDisplay-Regular.woff) format(woff);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-weight: 500;
+  font-style: normal;
+
+  src: local("SFUI-Medium"),
+  url(./fonts/SFUIDisplay-Medium.woff2) format(woff2),
+  url(./fonts/SFUIDisplay-Medium.woff) format(woff);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF UI Display";
+  font-weight: 700;
+  font-style: normal;
+
+  src: local("SFUI-Bold"),
+  url(./fonts/SFUIDisplay-Bold.woff2) format(woff2),
+  url(./fonts/SFUIDisplay-Bold.woff) format(woff);
+  font-display: swap;
+}
+
+:root {
+  --white: #ffffff;
+  --deep-red-orange: #B7280F;
+  --light-titian: #DC3E22;
+  --fiery-sienna-craiola: #EE735D;
+  --dark-salmon: #EA8979;
+  --ocean-blue: #213547;
+  --moderate-slate-blue: #747BFF;
+  --smoky-white: #F9F9F9;
+  --smoky-white2: #F4F4F4;
+  --gainsborough: #E4E4E4;
+  --signal-black: #333333;
+  --pearl-light-grey: #999999;
+  --yellow-ochre: #A8B64F;
+  --moderate-yellow-green: #899441;
+  --yellow-peach: #FFDDA9;
+  --light-mallow: #DFDCFE;
+  --light-cyanide: #C5F1FF;
+  --silver: #C4C4C4;
+  --dark-blue: #00132e;
+  --moderate-blue: #0e3e7d;
+}
+
+
+html[data-theme="light"] {
+  --background-header: var(--white);
+  --background-main: var(--white);
+  --background-left-content: var(--white);
+  --background-rigth-content: var(--white);
+  --color-text: var(--signal-black);
+  --color-text-2: var(--white);
+  --color-text-3: var(--pearl-light-grey);
+  --background-input: var(--white);
+  --color-input: var(--pearl-light-grey);
+  --border-list: var(--gainsborough);
+  --border-number-list: var(--silver);
+  --background-hover-list: var(--smoky-white2);
+  --fill-task-menu: var(--silver);
+  --background-task-menu: var(--white);
+  --background-task: var(--white);
+  --background-task-arrow: var(--white);
+  --background-timer-title: var(--silver);
+  --color-timer: var(--signal-black);
+  --color-timer-active: var(--light-titian);
+  --fill-timer-button: var(--silver);
+  --color-button-timer-stop: var(--silver);
+  --background-button-timer-stop: var(--white);
+  /* MODULE SETTING */
+  --background-color-modal: var(--white);
+  --color-settings-text: var(--signal-black);
+  --color-settings-title: var(--signal-black);
+  /* STATISTIC PAGE */
+  --background-statistick-block: var(--white);
+  --color-statistic-text: var(--signal-black);
+  --color-selector-arrow: var(--deep-red-orange);
+  --background-button-notification: var(--deep-red-orange);
+  --background-button-notification-hover: var(--light-titian);
+  /* MODAL */
+  --background-modal: var(--white);
+  /* TAP */
+  --fill-button-tap: var(--silver);
+  --fill-button-tap-hover: var(--signal-black);
+}
+
+html[data-theme="dark"] {
+  --background-header: var(--ocean-blue);
+  --background-main: var(--dark-blue);
+  --background-left-content: var(--ocean-blue);
+  --background-rigth-content: var(--ocean-blue);
+  --color-text: var(--white);
+  --color-text-2: var(--white);
+  --color-text-3: var(--pearl-light-grey);
+  --background-input: var(--dark-blue);
+  --color-input: var(--white);
+  --border-list: var(--dark-blue);
+  --border-number-list: var(--dark-blue);
+  --background-hover-list: var(--moderate-blue);
+  --fill-task-menu: var(--dark-blue);
+  --background-task-menu: var(--ocean-blue);
+  --background-task: var(--ocean-blue);
+  --background-task-arrow: var(--ocean-blue);
+  --background-timer-title: var(--moderate-blue);
+  --color-timer: var(--white);
+  --color-timer-active: var(--light-titian);
+  --fill-timer-button: var(--dark-blue);
+  --color-button-timer-stop: var(--white);
+  --background-button-timer-stop: var(--silver);
+  /* MODULE SETTING */
+  --background-color-modal: var(--ocean-blue);
+  --color-settings-text: var(--white);
+  --color-settings-title: var(--silver);
+  /* STATISTIC PAGE */
+  --background-statistick-block: var(--ocean-blue);
+  --color-statistic-text: var(--white);
+  --color-selector-arrow: var(--white);
+  --background-button-notification: var(--deep-red-orange);
+  --background-button-notification-hover: var(--light-titian);
+  /* MODAL */
+  --background-modal: var(--ocean-blue);
+  /* TAP */
+  --fill-button-tap: var(--silver);
+  --fill-button-tap-hover: var(--signal-black);
+}
+
+body {
+  position: relative;
+  margin: 0;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: SF UI Display;
+  background-color: var(--background-main);
+  transition: background-color .3s linear;
+}
+
+a {
+  text-decoration: none;
+  color: var(--light-titian);
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+h1, h2, h3 {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: inherit;
+}
+
+.modales-enter {
+  opacity: 0;
+}
+
+.modales-enter-active {
+  opacity: 1;
+  transition: opacity .2s;
+}
+
+.modales-exit {
+  opacity: 1;
+}
+
+.modales-exit-active {
+  opacity: 0;
+  transition: opacity .2s;
+}
