@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
-  base: "./",
+  base: "/realm2x.github.io/task-tracker-with-timer/",
   build: {
     outDir: 'dist',
     emptyOutDir: true,
