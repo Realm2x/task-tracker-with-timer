@@ -30,7 +30,7 @@ export function StatisticBlockContent() {
         </div>
         <div className={styles.statisticPomidoroDay}>
           <p className={styles.statisticPomidoroDayDescr}><span><TomatoStat /></span> x {activeDay.length > 0 ? activeDay[0].quantityPomidoro : 0}</p>
-          <button className={styles.statisticPomidoroDayButton}>{activeDay.length > 0 ? activeDay[0].quantityPomidoro : 0} помидор</button>
+          <div className={styles.statisticPomidoroDayButton}>{activeDay.length > 0 ? activeDay[0].quantityPomidoro : 0} помидор</div>
         </div>
       </div>
       <DiagramWeek />
