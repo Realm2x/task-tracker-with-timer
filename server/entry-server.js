@@ -69,7 +69,7 @@ function MenuReduce() {
     /* @__PURE__ */ jsx("defs", { children: /* @__PURE__ */ jsx("rect", { width: "18", height: "18", fill: "white" }) })
   ] });
 }
-const timerBell = "https://realm2x.github.io/task-tracker-with-timer/assets/timerBell-Yu4rmQRd.mp3";
+const timerBell = "/realm2x.github.io/task-tracker-with-timer/assets/timerBell-Yu4rmQRd.mp3";
 function Arrow() {
   return /* @__PURE__ */ jsxs("svg", { height: "40px", width: "40px", version: "1.1", id: "Layer_1", viewBox: "0 0 512 512", children: [
     /* @__PURE__ */ jsx("path", { d: "M256,0C114.608,0,0,114.608,0,256c0,141.376,114.608,256,256,256s256-114.624,256-256\r\n			C512,114.608,397.392,0,256,0z" }),
