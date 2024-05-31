@@ -2,7 +2,7 @@
   "name": "pomidoro-project",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://realm2x.github.io/task-tracker-with-timer/",
+  "homepage": "https://task-tracker-with-timer.netlify.app/",
   "type": "module",
   "scripts": {
     "dev": "node server",
