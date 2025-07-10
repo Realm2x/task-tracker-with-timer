@@ -3,6 +3,8 @@
 **Task manager with Pomodoro timer, productivity stats, and customizable UI.**  
 [![Live Demo](https://img.shields.io/badge/demo-live-green?style=for-the-badge)](https://task-tracker-with-timer.netlify.app/)  
 
+[![pomidoro.png](https://i.postimg.cc/BQD9qJm2/pomidoro.png)](https://postimg.cc/4mJFPRk3)
+
 ---
 
 ## 🚀 Features  
