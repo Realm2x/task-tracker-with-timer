@@ -1,27 +1,27 @@
 # Pomidoro Task Tracker 🍅⏱️  
 
-**Task manager with Pomodoro timer, productivity stats, and customizable UI.**  
+**Менеджер задач с Pomodoro-таймером, статистикой продуктивности и настраиваемым интерфейсом.**  
 [![Live Demo](https://img.shields.io/badge/demo-live-green?style=for-the-badge)](https://task-tracker-with-timer.netlify.app/)  
 
 [![pomidoro.png](https://i.postimg.cc/BQD9qJm2/pomidoro.png)](https://postimg.cc/4mJFPRk3)
 
 ---
 
-## 🚀 Features  
-- **Task Management**  
-  - Add/edit/delete tasks with drag-and-drop sorting ([@dnd-kit](https://dndkit.com/)).  
-  - Pomodoro timer (work/break intervals).  
-- **Productivity Analytics**  
-  - Charts ([Chart.js](https://www.chartjs.org/)) for completed tasks, total time, pauses.  
-  - Track stops, idle time, and session history.  
-- **Customization**  
-  - Light/dark theme toggle.  
-  - Animations ([Framer Motion](https://www.framer.com/motion/)).  
-  - Sound notifications ([use-sound](https://github.com/joshwcomeau/use-sound)).  
+## 🚀 Возможности  
+- **Управление задачами**  
+  - Добавление/редактирование/удаление задач с сортировкой перетаскиванием ([@dnd-kit](https://dndkit.com/)).  
+  - Pomodoro-таймер (работа/перерывы)..  
+- **Аналитика продуктивности**  
+  - Графики ([Chart.js](https://www.chartjs.org/)) для завершённых задач, общего времени, пауз. 
+  - Отслеживание остановок, времени простоя и истории сессий.  
+- **Кастомизация**  
+  - Переключение светлой/тёмной темы.  
+  - Анимации ([Framer Motion](https://www.framer.com/motion/)).  
+  - Звуковые уведомления ([use-sound](https://github.com/joshwcomeau/use-sound)).  
 
 ---
 
-## 🛠 Tech Stack  
+## 🛠 Технологии
 **Frontend**  
 - React 18 + TypeScript  
 - State: Redux Toolkit + Thunk  
@@ -39,18 +39,18 @@
 
 ---
 
-## 📦 Installation  
-1. Clone the repo:  
+## 📦 Установка
+1. Клонируйте репозиторий:
    git clone https://github.com/your-username/pomidoro-project.git
    
-3. Install dependencies:
+3. Установите зависимости:
 
     npm install
 
-3. Run dev server:
+3. Запустите сервер для разработки:
 
     npm run dev
 
-4. Build for production:
+4. Соберите проект для production:
 
     npm run build
